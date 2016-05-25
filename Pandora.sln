@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pithos", "Pithos\Pithos.csproj", "{922207CB-CCDB-4899-9564-6C9FE2ECBB5E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PandoraWeb", "PandoraWeb\PandoraWeb.csproj", "{5A79ED43-3F37-4A33-9209-4BC77C9B5DBD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PandoraWebTest", "PandoraWebTest\PandoraWebTest.csproj", "{5D4EDF2C-3C09-4181-897F-759F2DC6D416}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{922207CB-CCDB-4899-9564-6C9FE2ECBB5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{922207CB-CCDB-4899-9564-6C9FE2ECBB5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{922207CB-CCDB-4899-9564-6C9FE2ECBB5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{922207CB-CCDB-4899-9564-6C9FE2ECBB5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A79ED43-3F37-4A33-9209-4BC77C9B5DBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A79ED43-3F37-4A33-9209-4BC77C9B5DBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A79ED43-3F37-4A33-9209-4BC77C9B5DBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A79ED43-3F37-4A33-9209-4BC77C9B5DBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D4EDF2C-3C09-4181-897F-759F2DC6D416}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D4EDF2C-3C09-4181-897F-759F2DC6D416}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D4EDF2C-3C09-4181-897F-759F2DC6D416}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D4EDF2C-3C09-4181-897F-759F2DC6D416}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
