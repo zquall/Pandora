@@ -233,6 +233,7 @@
     <Content Include="Views\Rental\Index.cshtml" />
     <Content Include="Views\Rental\Quote.cshtml" />
     <Content Include="Views\Shared\DocumentTemplate\_DocumentPartialView.cshtml" />
+    <Content Include="Views\Shared\DocumentTemplate\_DocumentGridView.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -62,6 +62,29 @@
         <input class="btn btn-default" type="submit" value="Submit">
     </div>
     <div class="panel-footer">
-        Panel footer
+
+
+        @Html.DevExpress().PageControl(settings =>
+   {
+       settings.Name = "DocumentPageControl";
+       settings.TabPages.Add("Contenido").SetContent(() =>
+       {
+           Html.RenderPartial("DocumentTemplate/_DocumentGridView");
+       });
+       settings.TabPages.Add("Direcciones").SetContent(() =>
+       {
+           ViewContext.Writer.Write("Page content 1");
+       });
+       settings.TabPages.Add("Otros").SetContent(() =>
+       {
+           ViewContext.Writer.Write("Page content 2");
+       });
+   }).GetHtml()
+
+
+
+
+
+
     </div>
 </div>
