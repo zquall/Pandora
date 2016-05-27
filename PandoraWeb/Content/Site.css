@@ -77,8 +77,8 @@
 }
 .copyright 
 {
-    float: left;
-    margin: 100px 15px 11px;
+    float: right;
+    margin: 10px 15px 11px;
 }
 .content 
 {
@@ -683,4 +683,10 @@
 .dxpnlControl_Mulberry .contentPane .dxgvControl_Mulberry .dxgvHeader_Mulberry
 {
     border-top: 0!important;
+}
+
+
+
+.panel {
+    margin-bottom: 0!important;
 }

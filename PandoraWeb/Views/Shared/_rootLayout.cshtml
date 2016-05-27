@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html>
 <head>
@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0" />
     <title>@ViewBag.Title</title>
     <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet"/>
 
-    
     @Html.DevExpress().GetStyleSheets( 
     new StyleSheet { ExtensionSuite = ExtensionSuite.NavigationAndLayout }, 
     new StyleSheet { ExtensionSuite = ExtensionSuite.Editors }, 
@@ -74,6 +75,7 @@
 
     @Html.DevExpress().Panel(settings => {
         settings.Name = "FooterPane";
+                                             settings.Height = 40;
         settings.FixedPosition = PanelFixedPosition.WindowBottom;
         settings.SettingsAdaptivity.HideAtWindowInnerWidth = 500;
         settings.ControlStyle.CssClass = "footerPane";
