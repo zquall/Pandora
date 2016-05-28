@@ -691,3 +691,14 @@
 .panel {
     margin-bottom: 0!important;
 }
+
+
+.row.no-gutters {
+  margin-right: 2px;
+  margin-left: 2px;
+}
+.row.no-gutters > [class^="col-"],
+.row.no-gutters > [class*=" col-"] {
+  padding-right: 5px;
+  padding-left: 0px;
+}
