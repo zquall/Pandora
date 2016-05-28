@@ -67,13 +67,131 @@
 
 
 
-
-
-
-
-
+        
 
     </div>
+    <div class="panel-body">
+       
+        <div class="form-group">
+            <label for="ReferenceEdit">Referencia</label>
+            @Html.DevExpress().ButtonEdit(settings =>
+       {
+           settings.Name = "RefereceEdit";
+           //settings.ControlStyle.CssClass = "form-control";
+           settings.Width = 150;
+           settings.Properties.NullText = "00012345";
+           settings.Properties.Buttons.Add(new EditButton());
+           settings.Properties.ClientSideEvents.ButtonClick = "buttonEdit1_ButtonClick";
+       }).GetHtml()
+        </div>
+
+        <div class="form-group">
+            <label for="CurrencyEdit">Moneda</label>
+            @Html.DevExpress().ComboBox(settings =>
+   {
+       settings.Name = "CurrencyEdit";
+       settings.Properties.Items.Add("Dolares");
+       settings.Properties.Items.Add("Colones");
+       settings.Properties.Items.Add("Euros");
+       settings.Width = 150;
+       settings.SelectedIndex = 2;
+   }).GetHtml()
+        </div>
+
+        <div class="form-group">
+            <label for="RateEdit">Tipo Cambio</label>
+            @Html.DevExpress().TextBox(settings =>
+   {
+       settings.Name = "RateEdit";
+       settings.Text = "123456";
+       settings.Properties.DisplayFormatString = "C";
+       settings.ReadOnly = true;
+       settings.Enabled = false;
+       settings.Width = 150;
+       
+   }).GetHtml()
+        </div>
+
+        <div class="form-group">
+            <label for="TermsEdit">Moneda</label>
+            @Html.DevExpress().ComboBox(settings =>
+   {
+       settings.Name = "TermsEdit";
+       settings.Properties.Items.Add("Contado");
+       settings.Width = 150;
+       settings.SelectedIndex = 2;
+   }).GetHtml()
+        </div>
+
+        <div class="form-group">
+            <label for="DateCustomEdit">Fecha Customisable</label>
+            @Html.DevExpress().DateEdit(settings =>
+   {
+       settings.Name = "DateCustomEdit";
+       settings.Properties.EditFormat = EditFormat.Custom;
+       settings.Date = new DateTime(2009, 11, 2, 9, 23, 0);
+       settings.Width = 150;
+       settings.Properties.TimeSectionProperties.
+         TimeEditProperties.EditFormatString = "hh:mm tt";
+   }).GetHtml()
+        </div>
+
+        <div class="form-group">
+            <label for="DocumentDateEdit">Fecha Customisable</label>
+            @Html.DevExpress().DateEdit(settings =>
+   {
+       settings.Name = "DocumentDateEdit";
+       settings.Properties.EditFormat = EditFormat.Custom;
+       settings.Date = new DateTime(2009, 11, 2, 9, 23, 0);
+       settings.Width = 150;
+       settings.Properties.TimeSectionProperties.
+         TimeEditProperties.EditFormatString = "hh:mm tt";
+   }).GetHtml()
+        </div>
+
+        <div class="form-group">
+            <label for="SystemDateEdit">Fecha Customisable</label>
+            @Html.DevExpress().DateEdit(settings =>
+   {
+       settings.Name = "SystemDateEdit";
+       settings.Properties.EditFormat = EditFormat.Custom;
+       settings.Date = new DateTime(2009, 11, 2, 9, 23, 0);
+       settings.Width = 150;
+       settings.Properties.TimeSectionProperties.
+         TimeEditProperties.EditFormatString = "hh:mm tt";
+   }).GetHtml()
+        </div>
+
+        <div class="form-group">
+            <label for="NumberDocumentEdit">Documento #</label>
+            @Html.DevExpress().ButtonEdit(settings =>
+       {
+           settings.Name = "NumberDocumentEdit";
+           //settings.ControlStyle.CssClass = "form-control";
+           settings.Width = 150;
+           settings.Properties.NullText = "00012345";
+           settings.Properties.Buttons.Add(new EditButton());
+           settings.Properties.ClientSideEvents.ButtonClick = "buttonEdit1_ButtonClick";
+       }).GetHtml()
+        </div>
+
+        <div class="form-group">
+            <label for="EstateEdit">Estado</label>
+            @Html.DevExpress().TextBox(settings =>
+       {
+           settings.Name = "Estate";
+           settings.Text = "Pendiente";
+           settings.Properties.DisplayFormatString = "C";
+           settings.ReadOnly = true;
+           settings.Enabled = false;
+           settings.Width = 150;
+
+       }).GetHtml()
+        </div>
+
+            @*<a class="btn btn-default" href="#" role="button">Link</a>
+        </div>
+
     <div class="panel-footer">
 
 
