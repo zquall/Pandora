@@ -3,56 +3,65 @@
 </div>
 
 <div class="panel panel-default form-inline">
-    <div class="panel-heading">
+    <div class="panel-heading row">
 
-        <div class="form-group">
-            <label for="CustomerEdit">Nombre del cliente</label>
-            @Html.DevExpress().ButtonEdit(settings =>
-            {
-                settings.Name = "CustomerEdit";
-                //settings.ControlStyle.CssClass = "form-control";
-                settings.Width = 400;
-                settings.Properties.Buttons.Add(new EditButton());
-                settings.Properties.ClientSideEvents.ButtonClick = "buttonEdit1_ButtonClick";
-            }).GetHtml()
+        <div class="col-md-10">
 
-        </div>
+            <div class="form-group">
+                <label for="CustomerEdit">Nombre del cliente</label>
+                @Html.DevExpress().ButtonEdit(settings =>
+                {
+                    settings.Name = "CustomerEdit";
+                    //settings.ControlStyle.CssClass = "form-control";
+                    settings.Width = 400;
+                    settings.Properties.Buttons.Add(new EditButton());
+                    settings.Properties.ClientSideEvents.ButtonClick = "buttonEdit1_ButtonClick";
+                }).GetHtml()
 
-        <div class="form-group">
-            <label for="ContactEdit">Persona de Contacto</label>
-            @Html.DevExpress().ButtonEdit(settings =>
-            {
-                settings.Name = "ContactEdit";
-                //settings.ControlStyle.CssClass = "form-control";
-                settings.Width = 200;
-                settings.Properties.Buttons.Add(new EditButton());
-                settings.Properties.ClientSideEvents.ButtonClick = "buttonEdit1_ButtonClick";
-            }).GetHtml()
+            </div>
 
-        </div>
+            <div class="form-group">
+                <label for="ContactEdit">Persona de Contacto</label>
+                @Html.DevExpress().ButtonEdit(settings =>
+                {
+                    settings.Name = "ContactEdit";
+                    //settings.ControlStyle.CssClass = "form-control";
+                    settings.Width = 200;
+                    settings.Properties.Buttons.Add(new EditButton());
+                    settings.Properties.ClientSideEvents.ButtonClick = "buttonEdit1_ButtonClick";
+                }).GetHtml()
 
-        <div class="form-group">
-            <label for="ProjectEdit">Nombre de proyecto</label>
-            @Html.DevExpress().ButtonEdit(settings =>
-            {
-                settings.Name = "ProjectEdit";
-                //settings.ControlStyle.CssClass = "form-control";
-                settings.Width = 400;
-                settings.Properties.Buttons.Add(new EditButton());
-                settings.Properties.ClientSideEvents.ButtonClick = "buttonEdit1_ButtonClick";
-            }).GetHtml()
+            </div>
 
-        </div>
+            <div class="form-group">
+                <label for="ProjectEdit">Nombre de proyecto</label>
+                @Html.DevExpress().ButtonEdit(settings =>
+                {
+                    settings.Name = "ProjectEdit";
+                    //settings.ControlStyle.CssClass = "form-control";
+                    settings.Width = 400;
+                    settings.Properties.Buttons.Add(new EditButton());
+                    settings.Properties.ClientSideEvents.ButtonClick = "buttonEdit1_ButtonClick";
+                }).GetHtml()
 
-        <div class="form-group pull-right">
-            <div class="row pull-right text-muted">Saldo Actual</div>
-            <div class="row">
-                <h1>
-                    $ 123.456.00
-                </h1>
             </div>
         </div>
-    </div>
+        <div class="col-md-2">
+
+            <div class="form-group pull-right">
+                <div class="row pull-right text-muted">Saldo Actual</div>
+                <div class="row">
+                    <h1>
+                        $ 123.456.00
+                    </h1>
+                </div>
+            </div>
+            </div>
+        </div>
+
+
+
+
     <div class="panel-body">
 
 
