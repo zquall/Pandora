@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DevExpress.Web.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -89,6 +90,70 @@ namespace PandoraWeb.Controllers.Rental
             {
                 return View();
             }
+        }
+
+
+        [ValidateInput(false)]
+        public ActionResult DocumentGridViewPartial()
+        {
+            var model = new object[0];
+            return PartialView("~/Views/Shared/DocumentTemplate/_DocumentGridViewPartial.cshtml", model);
+        }
+
+        [HttpPost, ValidateInput(false)]
+        public ActionResult DocumentGridViewPartialAddNew(PandoraWeb.Models.DocumentGridViewModel item)
+        {
+            var model = new object[0];
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    // Insert here a code to insert the new item in your model
+                }
+                catch (Exception e)
+                {
+                    ViewData["EditError"] = e.Message;
+                }
+            }
+            else
+                ViewData["EditError"] = "Please, correct all errors.";
+            return PartialView("~/Views/Shared/DocumentTemplate/_DocumentGridViewPartial.cshtml", model);
+        }
+        [HttpPost, ValidateInput(false)]
+        public ActionResult DocumentGridViewPartialUpdate(PandoraWeb.Models.DocumentGridViewModel item)
+        {
+            var model = new object[0];
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    // Insert here a code to update the item in your model
+                }
+                catch (Exception e)
+                {
+                    ViewData["EditError"] = e.Message;
+                }
+            }
+            else
+                ViewData["EditError"] = "Please, correct all errors.";
+            return PartialView("~/Views/Shared/DocumentTemplate/_DocumentGridViewPartial.cshtml", model);
+        }
+        [HttpPost, ValidateInput(false)]
+        public ActionResult DocumentGridViewPartialDelete(System.String aaaa)
+        {
+            var model = new object[0];
+            if (aaaa != null)
+            {
+                try
+                {
+                    // Insert here a code to delete the item from your model
+                }
+                catch (Exception e)
+                {
+                    ViewData["EditError"] = e.Message;
+                }
+            }
+            return PartialView("~/Views/Shared/DocumentTemplate/_DocumentGridViewPartial.cshtml", model);
         }
     }
 }

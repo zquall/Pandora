@@ -3,221 +3,222 @@
 </div>
 
 <div class="panel panel-default form-inline">
-    <div class="panel-heading row">
+    <div class="panel-heading container-fluid">
 
-        <div class="col-md-9">
+        <div class="row">
+            <div class="col-md-9">
 
-            <div class="form-group">
-                <label for="CustomerEdit">Nombre del cliente</label>
-                @Html.DevExpress().ButtonEdit(settings =>
-                {
-                    settings.Name = "CustomerEdit";
-                    //settings.ControlStyle.CssClass = "form-control";
-                    settings.Width = 400;
-                    settings.Properties.Buttons.Add(new EditButton());
-                    settings.Properties.ClientSideEvents.ButtonClick = "buttonEdit1_ButtonClick";
-                }).GetHtml()
+                <div class="form-group">
+                    <label for="CustomerEdit">Nombre del cliente</label>
+                    @Html.DevExpress().ButtonEdit(settings =>
+                    {
+                        settings.Name = "CustomerEdit";
+                        //settings.ControlStyle.CssClass = "form-control";
+                        settings.Width = 310;
+                        settings.Properties.Buttons.Add(new EditButton());
+                        settings.Properties.ClientSideEvents.ButtonClick = "buttonEdit1_ButtonClick";
+                    }).GetHtml()
+
+                </div>
+
+                <div class="form-group">
+                    <label for="ContactEdit">Persona de Contacto</label>
+                    @Html.DevExpress().ButtonEdit(settings =>
+                    {
+                        settings.Name = "ContactEdit";
+                        //settings.ControlStyle.CssClass = "form-control";
+                        settings.Width = 200;
+                        settings.Properties.Buttons.Add(new EditButton());
+                        settings.Properties.ClientSideEvents.ButtonClick = "buttonEdit1_ButtonClick";
+                    }).GetHtml()
+
+                </div>
+
+                <div class="form-group">
+                    <label for="ProjectEdit">Nombre de proyecto</label>
+                    @Html.DevExpress().ButtonEdit(settings =>
+                    {
+                        settings.Name = "ProjectEdit";
+                        settings.Width = 310;
+                        settings.Properties.Buttons.Add(new EditButton());
+                        settings.Properties.ClientSideEvents.ButtonClick = "buttonEdit1_ButtonClick";
+                    }).GetHtml()
+
+                </div>
 
             </div>
 
-            <div class="form-group">
-                <label for="ContactEdit">Persona de Contacto</label>
-                @Html.DevExpress().ButtonEdit(settings =>
-                {
-                    settings.Name = "ContactEdit";
-                    //settings.ControlStyle.CssClass = "form-control";
-                    settings.Width = 200;
-                    settings.Properties.Buttons.Add(new EditButton());
-                    settings.Properties.ClientSideEvents.ButtonClick = "buttonEdit1_ButtonClick";
-                }).GetHtml()
-
-            </div>
-
-            <div class="form-group">
-                <label for="ProjectEdit">Nombre de proyecto</label>
-                @Html.DevExpress().ButtonEdit(settings =>
-                {
-                    settings.Name = "ProjectEdit";
-                    //settings.ControlStyle.CssClass = "form-control";
-                    settings.Width = 400;
-                    settings.Properties.Buttons.Add(new EditButton());
-                    settings.Properties.ClientSideEvents.ButtonClick = "buttonEdit1_ButtonClick";
-                }).GetHtml()
-
+            <div class="col-md-3">
+                <p class="text-right no-margin">Saldo Actual</p>
+                <h1 class="text-right no-margin"> $ 123.456,00 </h1>
             </div>
         </div>
-        <div class="col-md-3">
 
-            <div class="form-group pull-right">
-                <div class="row pull-right text-muted">Saldo Actual</div>
-                <div class="row">
-                    <h1>
-                        $ 123.456.00
-                    </h1>
+    </div>
+
+
+    <div class="panel-body container-fluid">
+        <div class="row">
+            <div class="col-md-7">
+                <div class="form-group">
+                    <label for="ReferenceEdit">Referencia</label>
+                    @Html.DevExpress().ButtonEdit(settings =>
+                    {
+                        settings.Name = "RefereceEdit";
+                        //settings.ControlStyle.CssClass = "form-control";
+                        settings.Width = 120;
+                        settings.Properties.NullText = "00012345";
+                        settings.Properties.Buttons.Add(new EditButton());
+                        settings.Properties.ClientSideEvents.ButtonClick = "buttonEdit1_ButtonClick";
+                    }).GetHtml()
+                </div>
+
+                <div class="form-group">
+                    <label for="CurrencyEdit">Moneda</label>
+                    @Html.DevExpress().ComboBox(settings =>
+                    {
+                        settings.Name = "CurrencyEdit";
+                        settings.Properties.Items.Add("Dolares");
+                        settings.Properties.Items.Add("Colones");
+                        settings.Properties.Items.Add("Euros");
+                        settings.Width = 120;
+                        settings.SelectedIndex = 2;
+                    }).GetHtml()
+                </div>
+
+                <div class="form-group">
+                    <label for="RateEdit">Tipo Cambio</label>
+                    @Html.DevExpress().TextBox(settings =>
+                    {
+                        settings.Name = "RateEdit";
+                        settings.Text = "123456";
+                        settings.Properties.DisplayFormatString = "C";
+                        settings.ReadOnly = true;
+                        settings.Enabled = false;
+                        settings.Width = 120;
+
+                    }).GetHtml()
+                </div>
+
+                <div class="form-group">
+                    <label for="TermsEdit">Moneda</label>
+                    @Html.DevExpress().ComboBox(settings =>
+                    {
+                        settings.Name = "TermsEdit";
+                        settings.Properties.Items.Add("Contado");
+                        settings.Width = 120;
+                        settings.SelectedIndex = 2;
+                    }).GetHtml()
+                </div>
+
+                <div class="form-group">
+                    <label for="DateCustomEdit">Fecha Customisable</label>
+                    @Html.DevExpress().DateEdit(settings =>
+                    {
+                        settings.Name = "DateCustomEdit";
+                        settings.Properties.EditFormat = EditFormat.Custom;
+                        settings.Date = new DateTime(2009, 11, 2, 9, 23, 0);
+                        settings.Width = 120;
+                        settings.Properties.TimeSectionProperties.
+                            TimeEditProperties.EditFormatString = "hh:mm tt";
+                    }).GetHtml()
                 </div>
             </div>
+
+            <div class="col-md-5">
+
+
+                <table class="table table-condensed table-borderless no-margin">
+
+                    <tbody>
+                    <tr>
+                        <td class="text-right" width="25%"><label>Fecha Documento</label></td>
+                        <td class="text-right" width="25%">
+                            @Html.DevExpress().DateEdit(settings =>
+                       {
+                           settings.Name = "DocumentDateEdit";
+                           settings.Properties.EditFormat = EditFormat.Custom;
+                           settings.Date = DateTime.Today;
+
+                           settings.Width = Unit.Percentage(90);
+                           settings.ControlStyle.CssClass = "pull-right";
+                           settings.Properties.TimeSectionProperties.TimeEditProperties.EditFormatString = "hh:mm tt";
+                       }).GetHtml()
+                        </td>
+                        <td class="text-right" width="25%"><label>Documento #</label></td>
+                        <td class="text-right" width="25%">@Html.DevExpress().ButtonEdit(settings =>
+                                          {
+                                              settings.Name = "DocumentNumberEdit";
+                                              settings.Width = Unit.Percentage(90);
+                                              settings.Properties.NullText = "00012345";
+                                              settings.ControlStyle.CssClass = "pull-right";
+                                              settings.Properties.Buttons.Add(new EditButton());
+                                              settings.Properties.ClientSideEvents.ButtonClick = "buttonEdit1_ButtonClick";
+                                          }).GetHtml()
+                        </td>
+                    </tr>
+                    <tr> <td class="text-right" width="25%"><label>Fecha Contabilizacion</label></td>
+                        <td class="text-right" width="25%">
+                            @Html.DevExpress().DateEdit(settings =>
+                       {
+                           settings.Name = "AccountingDateEdit";
+                           settings.Properties.EditFormat = EditFormat.Custom;
+                           settings.Date = new DateTime(2009, 11, 2, 9, 23, 0);
+
+                           settings.Width = Unit.Percentage(90);
+                           settings.ControlStyle.CssClass = "pull-right";
+                           settings.Properties.TimeSectionProperties.
+                               TimeEditProperties.EditFormatString = "hh:mm tt";
+                       }).GetHtml()
+                        </td>
+                        <td class="text-right" width="25%"><label>Estado</label></td>
+                        <td class="text-right" width="25%">
+                            @Html.DevExpress().TextBox(settings =>
+                       {
+                           settings.Name = "DocumentEstate";
+                           settings.Text = "Pendiente";
+                           settings.Properties.DisplayFormatString = "C";
+                           settings.ControlStyle.CssClass = "pull-right";
+                           settings.ReadOnly = true;
+                           settings.Enabled = false;
+                           settings.Width = Unit.Percentage(90);
+                           //settings.ControlStyle.Width = Unit.Percentage(100);
+
+                       }).GetHtml()
+                        </td> </tr>
+                    </tbody>
+                </table>
+
+
             </div>
         </div>
 
 
-
-
-    <div class="panel-body">
-
-
-
-
-        
+    
 
     </div>
-    <div class="panel-body">
-       
-        <div class="form-group">
-            <label for="ReferenceEdit">Referencia</label>
-            @Html.DevExpress().ButtonEdit(settings =>
-       {
-           settings.Name = "RefereceEdit";
-           //settings.ControlStyle.CssClass = "form-control";
-           settings.Width = 150;
-           settings.Properties.NullText = "00012345";
-           settings.Properties.Buttons.Add(new EditButton());
-           settings.Properties.ClientSideEvents.ButtonClick = "buttonEdit1_ButtonClick";
-       }).GetHtml()
-        </div>
 
-        <div class="form-group">
-            <label for="CurrencyEdit">Moneda</label>
-            @Html.DevExpress().ComboBox(settings =>
-   {
-       settings.Name = "CurrencyEdit";
-       settings.Properties.Items.Add("Dolares");
-       settings.Properties.Items.Add("Colones");
-       settings.Properties.Items.Add("Euros");
-       settings.Width = 150;
-       settings.SelectedIndex = 2;
-   }).GetHtml()
-        </div>
-
-        <div class="form-group">
-            <label for="RateEdit">Tipo Cambio</label>
-            @Html.DevExpress().TextBox(settings =>
-   {
-       settings.Name = "RateEdit";
-       settings.Text = "123456";
-       settings.Properties.DisplayFormatString = "C";
-       settings.ReadOnly = true;
-       settings.Enabled = false;
-       settings.Width = 150;
-       
-   }).GetHtml()
-        </div>
-
-        <div class="form-group">
-            <label for="TermsEdit">Moneda</label>
-            @Html.DevExpress().ComboBox(settings =>
-   {
-       settings.Name = "TermsEdit";
-       settings.Properties.Items.Add("Contado");
-       settings.Width = 150;
-       settings.SelectedIndex = 2;
-   }).GetHtml()
-        </div>
-
-        <div class="form-group">
-            <label for="DateCustomEdit">Fecha Customisable</label>
-            @Html.DevExpress().DateEdit(settings =>
-   {
-       settings.Name = "DateCustomEdit";
-       settings.Properties.EditFormat = EditFormat.Custom;
-       settings.Date = new DateTime(2009, 11, 2, 9, 23, 0);
-       settings.Width = 150;
-       settings.Properties.TimeSectionProperties.
-         TimeEditProperties.EditFormatString = "hh:mm tt";
-   }).GetHtml()
-        </div>
-
-        <div class="form-group">
-            <label for="DocumentDateEdit">Fecha Customisable</label>
-            @Html.DevExpress().DateEdit(settings =>
-   {
-       settings.Name = "DocumentDateEdit";
-       settings.Properties.EditFormat = EditFormat.Custom;
-       settings.Date = new DateTime(2009, 11, 2, 9, 23, 0);
-       settings.Width = 150;
-       settings.Properties.TimeSectionProperties.
-         TimeEditProperties.EditFormatString = "hh:mm tt";
-   }).GetHtml()
-        </div>
-
-        <div class="form-group">
-            <label for="SystemDateEdit">Fecha Customisable</label>
-            @Html.DevExpress().DateEdit(settings =>
-   {
-       settings.Name = "SystemDateEdit";
-       settings.Properties.EditFormat = EditFormat.Custom;
-       settings.Date = new DateTime(2009, 11, 2, 9, 23, 0);
-       settings.Width = 150;
-       settings.Properties.TimeSectionProperties.
-         TimeEditProperties.EditFormatString = "hh:mm tt";
-   }).GetHtml()
-        </div>
-
-        <div class="form-group">
-            <label for="NumberDocumentEdit">Documento #</label>
-            @Html.DevExpress().ButtonEdit(settings =>
-       {
-           settings.Name = "NumberDocumentEdit";
-           //settings.ControlStyle.CssClass = "form-control";
-           settings.Width = 150;
-           settings.Properties.NullText = "00012345";
-           settings.Properties.Buttons.Add(new EditButton());
-           settings.Properties.ClientSideEvents.ButtonClick = "buttonEdit1_ButtonClick";
-       }).GetHtml()
-        </div>
-
-        <div class="form-group">
-            <label for="EstateEdit">Estado</label>
-            @Html.DevExpress().TextBox(settings =>
-       {
-           settings.Name = "Estate";
-           settings.Text = "Pendiente";
-           settings.Properties.DisplayFormatString = "C";
-           settings.ReadOnly = true;
-           settings.Enabled = false;
-           settings.Width = 150;
-
-       }).GetHtml()
-        </div>
-
-        </div>
-
-    <div class="panel-footer">
-
-
+    <div class="panel-heading">
         @Html.DevExpress().PageControl(settings =>
-        {
-            settings.Name = "DocumentPageControl";
-            settings.TabPages.Add("Contenido").SetContent(() =>
-            {
-                Html.RenderPartial("DocumentTemplate/_DocumentGridView");
-            });
-            settings.TabPages.Add("Direccion").SetContent(() =>
-            {
-                ViewContext.Writer.Write("Page content 1");
-            });
-            settings.TabPages.Add("Notas").SetContent(() =>
-            {
-                ViewContext.Writer.Write("Page content 2");
-            });
-        }).GetHtml()
+   {
+       settings.Name = "DocumentPageControl";
+       settings.TabPages.Add("Contenido").SetContent(() =>
+       {
+           Html.RenderPartial("DocumentTemplate/_DocumentGridView");
 
-
-
-
-
-
+       });
+       settings.TabPages.Add("Direccion").SetContent(() =>
+       {
+           ViewContext.Writer.Write("Page content 1");
+       });
+       settings.TabPages.Add("Notas").SetContent(() =>
+       {
+           ViewContext.Writer.Write("Page content 2");
+       });
+   }).GetHtml()
     </div>
-    <div class="panel-body">
+
+    <div class="panel-body container-fluid">
         <div class="row no-gutters">
             <div class="col-md-4">
                 <div class="form-group-lg">
@@ -225,21 +226,20 @@
                     <textarea rows="4" style="min-width: 100%" class="form-control "></textarea>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="form-group">
                     <label for="EmployeeEdit">Vendedor</label>
                     @Html.DevExpress().ButtonEdit(settings =>
-                    {
-                        settings.Name = "EmployeeEdit";
-                        settings.Width = 200;
-                        settings.Properties.Buttons.Add(new EditButton());
-                        settings.Properties.ClientSideEvents.ButtonClick = "buttonEdit1_ButtonClick";
-                    }).GetHtml()
+                {
+                    settings.Name = "EmployeeEdit";
+                    settings.Width = 200;
+                    settings.Properties.Buttons.Add(new EditButton());
+                    settings.Properties.ClientSideEvents.ButtonClick = "buttonEdit1_ButtonClick";
+                }).GetHtml()
 
                 </div>
             </div>
-
-            <div class="col-md-4 pull-right">
+            <div class="col-md-4">
                 <div class="row">
                     <div class="form-group pull-right">
                         @Html.DevExpress().TextBox(settings => { settings.Name = "SubTotalTextBox"; }).GetHtml()
@@ -251,19 +251,19 @@
                 <div class="row">
                     <div class="form-group pull-right">
                         @Html.DevExpress().TextBox(settings =>
-                        {
-                            settings.Name = "DiscountTextBox";
-                            settings.Width = 130;
-                            settings.ControlStyle.CssClass = "pull-right";
-                        }).GetHtml()
+                    {
+                        settings.Name = "DiscountTextBox";
+                        settings.Width = 130;
+                        settings.ControlStyle.CssClass = "pull-right";
+                    }).GetHtml()
 
                         @Html.DevExpress().TextBox(settings =>
-                        {
-                            settings.Name = "DiscountPercentageTextBox";
-                            settings.Width = 40;
-                            settings.ControlStyle.CssClass = "pull-right";
-                        }
-                            ).GetHtml()
+                    {
+                        settings.Name = "DiscountPercentageTextBox";
+                        settings.Width = 40;
+                        settings.ControlStyle.CssClass = "pull-right";
+                    }
+                        ).GetHtml()
                     </div>
                     <div class="form-group pull-right">
                         <p class="form-control-static">Descuento &nbsp;</p>
@@ -272,18 +272,18 @@
                 <div class="row">
                     <div class="form-group pull-right">
                         @Html.DevExpress().TextBox(settings =>
-                        {
-                            settings.Name = "TaxTextBox";
-                            settings.Width = 130;
-                            settings.ControlStyle.CssClass = "pull-right";
-                        }).GetHtml()
+                    {
+                        settings.Name = "TaxTextBox";
+                        settings.Width = 130;
+                        settings.ControlStyle.CssClass = "pull-right";
+                    }).GetHtml()
                         @Html.DevExpress().TextBox(settings =>
-                        {
-                            settings.Name = "TaxPercentageTextBox";
-                            settings.Width = 40;
-                            settings.ControlStyle.CssClass = "pull-right";
-                        }
-                            ).GetHtml()
+                    {
+                        settings.Name = "TaxPercentageTextBox";
+                        settings.Width = 40;
+                        settings.ControlStyle.CssClass = "pull-right";
+                    }
+                        ).GetHtml()
                     </div>
                     <div class="form-group pull-right">
                         <p class="form-control-static">Impuesto &nbsp;</p>
@@ -299,6 +299,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 </div>
+

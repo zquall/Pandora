@@ -234,6 +234,7 @@
     <Content Include="Views\Rental\Quote.cshtml" />
     <Content Include="Views\Shared\DocumentTemplate\_DocumentPartialView.cshtml" />
     <Content Include="Views\Shared\DocumentTemplate\_DocumentGridView.cshtml" />
+    <Content Include="Views\Shared\DocumentTemplate\_DocumentGridViewPartial.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -250,7 +251,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Class1.cs" />
+    <Compile Include="Models\DocumentGridViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

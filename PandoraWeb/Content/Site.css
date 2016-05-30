@@ -692,6 +692,19 @@
     margin-bottom: 0!important;
 }
 
+.no-margin{
+    margin: 0 0 0 0!important;
+}
+
+
+.table-borderless>tbody>tr>td, .table-borderless>tbody>tr>th, .table-borderless>tfoot>tr>td, .table-borderless>tfoot>tr>th, .table-borderless>thead>tr>td, .table-borderless>thead>tr>th {
+    border: none !important;
+}
+.table-borderless.no-margin>tbody>tr>td {
+     margin: 0 0 0 0!important;
+     padding: 0 0 0 0!important;
+    vertical-align: middle;
+}
 
 .row.no-gutters {
   margin-right: 2px;
