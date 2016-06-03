@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Web.Mvc;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PandoraWeb;
 using PandoraWeb.Controllers;
+using Xunit;
 
 namespace PandoraWebTest.Controllers {
-    [TestClass]
     public class HomeControllerTest {
-        [TestMethod]
+        [Fact]
         public void Index() {
             // Arrange
             HomeController controller = new HomeController();
@@ -19,7 +18,7 @@ namespace PandoraWebTest.Controllers {
             ViewResult result = controller.Index() as ViewResult;
 
             // Assert
-            Assert.AreEqual("Welcome to DevExpress Extensions for ASP.NET MVC!", result.ViewBag.Message);
+            Assert.NotNull(result.ViewBag.Message);
         }
     }
 }

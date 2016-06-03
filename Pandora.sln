@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PandoraWebTest", "PandoraWe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PandoraWebOLD", "PandoraWebOLD\PandoraWebOLD.csproj", "{5A79ED43-3F37-4A33-9209-4BC77C9B5DBD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PandoraWeb", "PandoraWeb\PandoraWeb.csproj", "{F6D1CB4F-62B9-456D-8387-86E65B681868}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PandoraWeb", "PandoraWeb\PandoraWeb.csproj", "{5B214041-4FC3-4489-A98D-94559F12218F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{5A79ED43-3F37-4A33-9209-4BC77C9B5DBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5A79ED43-3F37-4A33-9209-4BC77C9B5DBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5A79ED43-3F37-4A33-9209-4BC77C9B5DBD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F6D1CB4F-62B9-456D-8387-86E65B681868}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F6D1CB4F-62B9-456D-8387-86E65B681868}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F6D1CB4F-62B9-456D-8387-86E65B681868}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F6D1CB4F-62B9-456D-8387-86E65B681868}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B214041-4FC3-4489-A98D-94559F12218F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B214041-4FC3-4489-A98D-94559F12218F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B214041-4FC3-4489-A98D-94559F12218F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B214041-4FC3-4489-A98D-94559F12218F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
