@@ -100,8 +100,11 @@
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\PandoraWeb\PandoraWeb.csproj">
-      <Project>{5b214041-4fc3-4489-a98d-94559f12218f}</Project>
+      <Project>{1b58c69f-58ab-4d19-aed5-3ba9e5ffcecb}</Project>
       <Name>PandoraWeb</Name>
     </ProjectReference>
   </ItemGroup>
