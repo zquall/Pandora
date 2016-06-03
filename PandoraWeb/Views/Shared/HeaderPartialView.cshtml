@@ -1,0 +1,30 @@
+@using PandoraWeb.Models.Common
+@model CommonEnums.HeaderViewRenderMode
+
+@if(Model == CommonEnums.HeaderViewRenderMode.Title) {
+    <div class="templateTitle">
+        @Html.ActionLink("Project Title", "Index", "Home")
+    </div>
+} else { 
+    if(Model == CommonEnums.HeaderViewRenderMode.Full) { 
+        <div class="headerTop">
+            <div class="templateTitle">
+                @Html.ActionLink("Pandora", "Index", "Home")
+            </div>
+        </div>
+    }
+
+    <div class="headerMenu">
+            @* DXCOMMENT: Configure the header menu *@
+    @Html.DevExpress().Menu(settings => {
+        settings.Name = "HeaderMenu";
+        settings.ItemAutoWidth = false;
+        settings.ControlStyle.CssClass = "headerMenu";
+        settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+        settings.Items.Add("Item 1");
+        settings.Items.Add("Item 2");
+        settings.Items.Add("Item 3");
+        settings.Items.Add("Item 4");
+    }).GetHtml()
+    </div>
+}
