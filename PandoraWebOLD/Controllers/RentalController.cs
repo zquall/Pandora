@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PandoraWeb.Models;
 
 namespace PandoraWeb.Controllers.Rental
 {
@@ -96,18 +97,20 @@ namespace PandoraWeb.Controllers.Rental
         [ValidateInput(false)]
         public ActionResult DocumentGridViewPartial()
         {
-            var model = new object[0];
+            var model = new List<DocumentGridViewModel> {new DocumentGridViewModel { Code = string.Empty, Quantity = 1, UnitPrice = 0m } };
             return PartialView("~/Views/Shared/DocumentTemplate/_DocumentGridViewPartial.cshtml", model);
         }
 
         [HttpPost, ValidateInput(false)]
-        public ActionResult DocumentGridViewPartialAddNew(PandoraWeb.Models.DocumentGridViewModel item)
+        public ActionResult DocumentGridViewPartialAddNew(DocumentGridViewModel item)
         {
-            var model = new object[0];
+            var model = new List<DocumentGridViewModel>();
             if (ModelState.IsValid)
             {
                 try
                 {
+                    model.Add(item);
+
                     // Insert here a code to insert the new item in your model
                 }
                 catch (Exception e)
@@ -120,9 +123,9 @@ namespace PandoraWeb.Controllers.Rental
             return PartialView("~/Views/Shared/DocumentTemplate/_DocumentGridViewPartial.cshtml", model);
         }
         [HttpPost, ValidateInput(false)]
-        public ActionResult DocumentGridViewPartialUpdate(PandoraWeb.Models.DocumentGridViewModel item)
+        public ActionResult DocumentGridViewPartialUpdate(DocumentGridViewModel item)
         {
-            var model = new object[0];
+            var model = new List<DocumentGridViewModel>();
             if (ModelState.IsValid)
             {
                 try
@@ -139,9 +142,9 @@ namespace PandoraWeb.Controllers.Rental
             return PartialView("~/Views/Shared/DocumentTemplate/_DocumentGridViewPartial.cshtml", model);
         }
         [HttpPost, ValidateInput(false)]
-        public ActionResult DocumentGridViewPartialDelete(System.String aaaa)
+        public ActionResult DocumentGridViewPartialDelete(DocumentGridViewModel aaaa)
         {
-            var model = new object[0];
+            var model = new List<DocumentGridViewModel>();
             if (aaaa != null)
             {
                 try
@@ -153,6 +156,25 @@ namespace PandoraWeb.Controllers.Rental
                     ViewData["EditError"] = e.Message;
                 }
             }
+            return PartialView("~/Views/Shared/DocumentTemplate/_DocumentGridViewPartial.cshtml", model);
+        }
+
+        public ActionResult DocumentGridViewPartialBatchUpdate(object item)
+        {
+            var model = new List<DocumentGridViewModel>();
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    // Insert here a code to update the item in your model
+                }
+                catch (Exception e)
+                {
+                    ViewData["EditError"] = e.Message;
+                }
+            }
+            else
+                ViewData["EditError"] = "Please, correct all errors.";
             return PartialView("~/Views/Shared/DocumentTemplate/_DocumentGridViewPartial.cshtml", model);
         }
     }

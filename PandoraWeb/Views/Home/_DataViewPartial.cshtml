@@ -1,0 +1,98 @@
+
+
+
+@model IEnumerable<PandoraWeb.Models.DocumentGridViewModel>
+
+@{
+    var grid = Html.DevExpress().GridView(settings =>
+    {
+        settings.Name = "DataView";
+
+        settings.CallbackRouteValues = new { Controller = "Rental", Action = "DocumentGridViewPartial" };
+
+        settings.SettingsEditing.AddNewRowRouteValues = new { Controller = "Rental", Action = "DocumentGridViewPartialAddNew" };
+        settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "Rental", Action = "DocumentGridViewPartialUpdate" };
+        settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "Rental", Action = "DocumentGridViewPartialDelete" };
+        settings.SettingsEditing.BatchUpdateRouteValues = new { Controller = "Rental", Action = "DocumentGridViewPartialBatchUpdate" };
+
+        settings.SettingsEditing.BatchEditSettings.EditMode = GridViewBatchEditMode.Row;
+        settings.SettingsEditing.BatchEditSettings.StartEditAction = GridViewBatchStartEditAction.Click;
+
+        settings.SettingsEditing.Mode = GridViewEditingMode.Batch;
+        settings.SettingsBehavior.ConfirmDelete = false;
+
+        settings.CommandColumn.Visible = true;
+        settings.CommandColumn.ShowNewButton = false;
+        settings.CommandColumn.ShowDeleteButton = true;
+        settings.CommandColumn.ShowEditButton = false;
+        settings.CommandColumn.ShowNewButtonInHeader = true;
+
+        settings.KeyFieldName = "Code";
+
+        settings.SettingsPager.Visible = false;
+        settings.Settings.ShowGroupPanel = false;
+        settings.Settings.ShowFilterRow = false;
+        settings.SettingsBehavior.AllowSelectByRowClick = true;
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "Code";
+            column.Caption = "Codigo";
+        });
+
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "Description";
+            column.Caption = "Detalles del articulo";
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "Quantity";
+            column.Caption = "Cantidad";
+            column.ColumnType = MVCxGridViewColumnType.SpinEdit;
+            var spinEditProperties = column.PropertiesEdit as SpinEditProperties;
+            spinEditProperties.NumberType = SpinEditNumberType.Integer;
+            spinEditProperties.MinValue = 1;
+            spinEditProperties.MaxValue = 1000000;
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "UnitPrice";
+            column.Caption = "Precio";
+            column.PropertiesEdit.DisplayFormatString = "C";
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "Amount";
+            column.Caption = "Monto";
+            column.PropertiesEdit.DisplayFormatString = "C";
+        });
+
+        settings.CustomColumnDisplayText = (sender, e) =>
+        {
+            if (e.Column.FieldName == "Monto")
+            {
+                e.Value = 1234;
+            }
+        };
+
+        settings.CellEditorInitialize = (s, e) =>
+        {
+            ASPxEdit editor = (ASPxEdit)e.Editor;
+            editor.ValidationSettings.Display = Display.Dynamic;
+        };
+
+
+
+
+    });
+    if (ViewData["EditError"] != null)
+    {
+        grid.SetEditErrorText((string)ViewData["EditError"]);
+    }
+}
+@grid.Bind(Model).GetHtml()

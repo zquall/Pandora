@@ -192,16 +192,13 @@
 
             </div>
         </div>
-
-
-    
-
     </div>
 
-    <div class="panel-heading">
+    <div class="panel-body container-fluid">
         @Html.DevExpress().PageControl(settings =>
    {
        settings.Name = "DocumentPageControl";
+       settings.Width = Unit.Percentage(100);
        settings.TabPages.Add("Contenido").SetContent(() =>
        {
            Html.RenderPartial("DocumentTemplate/_DocumentGridView");

@@ -1,1 +1,1 @@
-<%@ Application Codebehind="Global.asax.cs" Inherits="PandoraWeb.MvcApplication" Language="C#" %>
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="PandoraWeb.MvcApplication" Language="C#" %>

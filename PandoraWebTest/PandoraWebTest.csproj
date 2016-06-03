@@ -78,17 +78,17 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PandoraWeb\PandoraWeb.csproj">
-      <Project>{5A79ED43-3F37-4A33-9209-4BC77C9B5DBD}</Project>
-      <Name>PandoraWeb</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PandoraWeb\PandoraWeb.csproj">
+      <Project>{f6d1cb4f-62b9-456d-8387-86e65b681868}</Project>
+      <Name>PandoraWeb</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
