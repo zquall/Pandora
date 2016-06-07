@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="PandoraModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <Function Name="GetProjectGeneralStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ProjectQuoteId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GetSalesByEmployeeByDivision" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="StartDate" Type="datetime" Mode="In" />
+          <Parameter Name="EndDate" Type="datetime" Mode="In" />
+        </Function>
+        <EntityContainer Name="PandoraModelStoreContainer" />
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PandoraModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="PandoraEntities" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="GetProjectGeneralStatus">
+          <Parameter Name="ProjectQuoteId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GetSalesByEmployeeByDivision" ReturnType="Collection(PandoraModel.GetSalesByEmployeeByDivision_Result)">
+            <Parameter Name="StartDate" Mode="In" Type="DateTime" />
+            <Parameter Name="EndDate" Mode="In" Type="DateTime" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="GetSalesByEmployeeByDivision_Result">
+          <Property Type="String" Name="Vendedor" Nullable="false" MaxLength="155" />
+          <Property Type="String" Name="Tipo" Nullable="false" MaxLength="7" />
+          <Property Type="String" Name="Area" Nullable="false" MaxLength="25" />
+          <Property Type="Int32" Name="Documento_" Nullable="true" />
+          <Property Type="DateTime" Name="FechaDocumento" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="FechaVencimiento" Nullable="true" Precision="23" />
+          <Property Type="String" Name="NombreCliente" Nullable="true" MaxLength="100" />
+          <Property Type="Decimal" Name="Total" Nullable="true" Precision="22" Scale="6" />
+          <Property Type="Decimal" Name="Impuesto" Nullable="true" Precision="21" Scale="6" />
+          <Property Type="Decimal" Name="Utilidad" Nullable="true" Precision="21" Scale="6" />
+          <Property Type="Decimal" Name="Pagado" Nullable="true" Precision="21" Scale="6" />
+          <Property Type="Decimal" Name="Total_" Nullable="true" Precision="38" Scale="16" />
+          <Property Type="Decimal" Name="Impuesto_" Nullable="true" Precision="38" Scale="17" />
+          <Property Type="Decimal" Name="Utilidad_" Nullable="true" Precision="38" Scale="17" />
+          <Property Type="Decimal" Name="Pagado_" Nullable="true" Precision="38" Scale="17" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PandoraModelStoreContainer" CdmEntityContainer="PandoraEntities" >
+          <FunctionImportMapping FunctionImportName="GetProjectGeneralStatus" FunctionName="PandoraModel.Store.GetProjectGeneralStatus" />
+          <FunctionImportMapping FunctionImportName="GetSalesByEmployeeByDivision" FunctionName="PandoraModel.Store.GetSalesByEmployeeByDivision">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PandoraModel.GetSalesByEmployeeByDivision_Result">
+                <ScalarProperty Name="Vendedor" ColumnName="Vendedor" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="Documento_" ColumnName="Documento#" />
+                <ScalarProperty Name="FechaDocumento" ColumnName="FechaDocumento" />
+                <ScalarProperty Name="FechaVencimiento" ColumnName="FechaVencimiento" />
+                <ScalarProperty Name="NombreCliente" ColumnName="NombreCliente" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Impuesto" ColumnName="Impuesto" />
+                <ScalarProperty Name="Utilidad" ColumnName="Utilidad" />
+                <ScalarProperty Name="Pagado" ColumnName="Pagado" />
+                <ScalarProperty Name="Total_" ColumnName="Total$" />
+                <ScalarProperty Name="Impuesto_" ColumnName="Impuesto$" />
+                <ScalarProperty Name="Utilidad_" ColumnName="Utilidad$" />
+                <ScalarProperty Name="Pagado_" ColumnName="Pagado$" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
