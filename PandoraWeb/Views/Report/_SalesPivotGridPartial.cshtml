@@ -18,12 +18,12 @@
 
     settings.Fields.Add(field => {
         field.Area = PivotArea.RowArea;
-        field.FieldName = "Vendedor";
+        field.FieldName = "SalesPerson";
         field.Caption = "Vendedor";
     });
     settings.Fields.Add(field => {
         field.Area = PivotArea.FilterArea;
-        field.FieldName = "Tipo";
+        field.FieldName = "DocumentType";
         field.Caption = "Tipo";
     });
     settings.Fields.Add(field => {
@@ -33,19 +33,19 @@
     });
     settings.Fields.Add(field => {
         field.Area = PivotArea.FilterArea;
-        field.FieldName = "Documento_";
+        field.FieldName = "DocumentNumber";
         field.Caption = "Documento_";
     });
     settings.Fields.Add(field => {
         field.Area = PivotArea.FilterArea;
-        field.FieldName = "FechaDocumento";
+        field.FieldName = "DocumentDate";
         field.Caption = "Fecha";
     });
     settings.Fields.Add(field =>
     {
-        field.ID = "Ano";
+        field.ID = "Año";
         field.Area = PivotArea.ColumnArea;
-        field.FieldName = "FechaDocumento";
+        field.FieldName = "DocumentDate";
         field.Caption = "Año";
         field.UnboundFieldName = "Ano";
         field.GroupInterval = PivotGroupInterval.DateYear;
@@ -54,73 +54,73 @@
     {
         field.ID = "Mes";
         field.Area = PivotArea.ColumnArea;
-        field.FieldName = "FechaDocumento";
+        field.FieldName = "DocumentDate";
         field.Caption = "Mes";
         field.UnboundFieldName = "Mes";
         field.GroupInterval = PivotGroupInterval.DateMonth;
     });
     settings.Fields.Add(field => {
         field.Area = PivotArea.FilterArea;
-        field.FieldName = "FechaVencimiento";
+        field.FieldName = "DocumentDueDate";
         field.Caption = "FechaVencimiento";
     });
     settings.Fields.Add(field => {
         field.Area = PivotArea.RowArea;
-        field.FieldName = "NombreCliente";
+        field.FieldName = "CustomerName";
         field.Caption = "NombreCliente";
     });
     settings.Fields.Add(field => {
         field.Area = PivotArea.FilterArea;
-        field.FieldName = "Total";
+        field.FieldName = "TotalColons";
         field.Caption = "Total";
         field.CellFormat.FormatType = FormatType.Numeric;
         field.CellFormat.FormatString = "₡ #,##0.00";
     });
     settings.Fields.Add(field => {
         field.Area = PivotArea.FilterArea;
-        field.FieldName = "Impuesto";
+        field.FieldName = "TaxColon";
         field.Caption = "Impuesto";
         field.CellFormat.FormatType = FormatType.Numeric;
         field.CellFormat.FormatString = "₡ #,##0.00";
     });
     settings.Fields.Add(field => {
         field.Area = PivotArea.FilterArea;
-        field.FieldName = "Utilidad";
+        field.FieldName = "GrossProfitColons";
         field.Caption = "Utilidad";
         field.CellFormat.FormatType = FormatType.Numeric;
         field.CellFormat.FormatString = "₡ #,##0.00";
     });
     settings.Fields.Add(field => {
         field.Area = PivotArea.FilterArea;
-        field.FieldName = "Pagado";
+        field.FieldName = "PaidAmountColons";
         field.Caption = "Pagado";
         field.CellFormat.FormatType = FormatType.Numeric;
         field.CellFormat.FormatString = "₡ #,##0.00";
     });
     settings.Fields.Add(field => {
         field.Area = PivotArea.DataArea;
-        field.FieldName = "Total_";
+        field.FieldName = "TotalDollar";
         field.Caption = "Total_";
         field.CellFormat.FormatType = FormatType.Numeric;
         field.CellFormat.FormatString = "$ #,##0.00";
     });
     settings.Fields.Add(field => {
         field.Area = PivotArea.DataArea;
-        field.FieldName = "Impuesto_";
+        field.FieldName = "TaxDollar";
         field.Caption = "Impuesto_";
         field.CellFormat.FormatType = FormatType.Numeric;
         field.CellFormat.FormatString = "$ #,##0.00";
     });
     settings.Fields.Add(field => {
         field.Area = PivotArea.FilterArea;
-        field.FieldName = "Utilidad_";
+        field.FieldName = "GrossProfitDollar";
         field.Caption = "Utilidad_";
         field.CellFormat.FormatType = FormatType.Numeric;
         field.CellFormat.FormatString = "$ #,##0.00";
     });
     settings.Fields.Add(field => {
         field.Area = PivotArea.FilterArea;
-        field.FieldName = "Pagado_";
+        field.FieldName = "PaidAmountDollar";
         field.Caption = "Pagado_";
         field.CellFormat.FormatType = FormatType.Numeric;
         field.CellFormat.FormatString = "$ #,##0.00";

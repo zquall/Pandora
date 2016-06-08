@@ -27,22 +27,22 @@
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="GetSalesByEmployeeByDivision_Result">
-          <Property Type="String" Name="Vendedor" Nullable="false" MaxLength="155" />
-          <Property Type="String" Name="Tipo" Nullable="false" MaxLength="7" />
           <Property Type="String" Name="Area" Nullable="false" MaxLength="25" />
-          <Property Type="Int32" Name="Documento_" Nullable="true" />
-          <Property Type="DateTime" Name="FechaDocumento" Nullable="true" Precision="23" />
-          <Property Type="DateTime" Name="FechaVencimiento" Nullable="true" Precision="23" />
-          <Property Type="String" Name="NombreCliente" Nullable="true" MaxLength="100" />
-          <Property Type="Decimal" Name="Total" Nullable="true" Precision="22" Scale="6" />
-          <Property Type="Decimal" Name="Impuesto" Nullable="true" Precision="21" Scale="6" />
-          <Property Type="Decimal" Name="Utilidad" Nullable="true" Precision="21" Scale="6" />
-          <Property Type="Decimal" Name="Pagado" Nullable="true" Precision="21" Scale="6" />
-          <Property Type="Decimal" Name="Total_" Nullable="true" Precision="38" Scale="16" />
-          <Property Type="Decimal" Name="Impuesto_" Nullable="true" Precision="38" Scale="17" />
-          <Property Type="Decimal" Name="Utilidad_" Nullable="true" Precision="38" Scale="17" />
-          <Property Type="Decimal" Name="Pagado_" Nullable="true" Precision="38" Scale="17" />
-        </ComplexType>
+          <Property Type="String" Name="SalesPerson" Nullable="false" MaxLength="155" />
+          <Property Type="String" Name="DocumentType" Nullable="false" MaxLength="7" />
+          <Property Type="Int32" Name="DocumentNumber" Nullable="true" />
+          <Property Type="DateTime" Name="DocumentDate" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="DocumentDueDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="CustomerName" Nullable="true" MaxLength="100" />
+          <Property Type="Decimal" Name="TotalColons" Nullable="true" Precision="22" Scale="6" />
+          <Property Type="Decimal" Name="TaxColon" Nullable="true" Precision="21" Scale="6" />
+          <Property Type="Decimal" Name="GrossProfitColons" Nullable="true" Precision="21" Scale="6" />
+          <Property Type="Decimal" Name="PaidAmountColons" Nullable="true" Precision="21" Scale="6" />
+          <Property Type="Decimal" Name="TotalDollar" Nullable="true" Precision="38" Scale="16" />
+          <Property Type="Decimal" Name="TaxDollar" Nullable="true" Precision="38" Scale="17" />
+          <Property Type="Decimal" Name="GrossProfitDollar" Nullable="true" Precision="38" Scale="17" />
+          <Property Type="Decimal" Name="PaidAmountDollar" Nullable="true" Precision="38" Scale="17" />
+          </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -53,22 +53,22 @@
           <FunctionImportMapping FunctionImportName="GetSalesByEmployeeByDivision" FunctionName="PandoraModel.Store.GetSalesByEmployeeByDivision">
             <ResultMapping>
               <ComplexTypeMapping TypeName="PandoraModel.GetSalesByEmployeeByDivision_Result">
-                <ScalarProperty Name="Vendedor" ColumnName="Vendedor" />
-                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
                 <ScalarProperty Name="Area" ColumnName="Area" />
-                <ScalarProperty Name="Documento_" ColumnName="Documento#" />
-                <ScalarProperty Name="FechaDocumento" ColumnName="FechaDocumento" />
-                <ScalarProperty Name="FechaVencimiento" ColumnName="FechaVencimiento" />
-                <ScalarProperty Name="NombreCliente" ColumnName="NombreCliente" />
-                <ScalarProperty Name="Total" ColumnName="Total" />
-                <ScalarProperty Name="Impuesto" ColumnName="Impuesto" />
-                <ScalarProperty Name="Utilidad" ColumnName="Utilidad" />
-                <ScalarProperty Name="Pagado" ColumnName="Pagado" />
-                <ScalarProperty Name="Total_" ColumnName="Total$" />
-                <ScalarProperty Name="Impuesto_" ColumnName="Impuesto$" />
-                <ScalarProperty Name="Utilidad_" ColumnName="Utilidad$" />
-                <ScalarProperty Name="Pagado_" ColumnName="Pagado$" />
-              </ComplexTypeMapping>
+                <ScalarProperty Name="SalesPerson" ColumnName="SalesPerson" />
+                <ScalarProperty Name="DocumentType" ColumnName="DocumentType" />
+                <ScalarProperty Name="DocumentNumber" ColumnName="DocumentNumber" />
+                <ScalarProperty Name="DocumentDate" ColumnName="DocumentDate" />
+                <ScalarProperty Name="DocumentDueDate" ColumnName="DocumentDueDate" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="TotalColons" ColumnName="TotalColons" />
+                <ScalarProperty Name="TaxColon" ColumnName="TaxColon" />
+                <ScalarProperty Name="GrossProfitColons" ColumnName="GrossProfitColons" />
+                <ScalarProperty Name="PaidAmountColons" ColumnName="PaidAmountColons" />
+                <ScalarProperty Name="TotalDollar" ColumnName="TotalDollar" />
+                <ScalarProperty Name="TaxDollar" ColumnName="TaxDollar" />
+                <ScalarProperty Name="GrossProfitDollar" ColumnName="GrossProfitDollar" />
+                <ScalarProperty Name="PaidAmountDollar" ColumnName="PaidAmountDollar" />
+                </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
         </EntityContainerMapping>

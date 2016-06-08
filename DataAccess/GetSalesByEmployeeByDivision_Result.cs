@@ -13,20 +13,20 @@ namespace DataAccess
     
     public partial class GetSalesByEmployeeByDivision_Result
     {
-        public string Vendedor { get; set; }
-        public string Tipo { get; set; }
         public string Area { get; set; }
-        public Nullable<int> Documento_ { get; set; }
-        public Nullable<System.DateTime> FechaDocumento { get; set; }
-        public Nullable<System.DateTime> FechaVencimiento { get; set; }
-        public string NombreCliente { get; set; }
-        public Nullable<decimal> Total { get; set; }
-        public Nullable<decimal> Impuesto { get; set; }
-        public Nullable<decimal> Utilidad { get; set; }
-        public Nullable<decimal> Pagado { get; set; }
-        public Nullable<decimal> Total_ { get; set; }
-        public Nullable<decimal> Impuesto_ { get; set; }
-        public Nullable<decimal> Utilidad_ { get; set; }
-        public Nullable<decimal> Pagado_ { get; set; }
+        public string SalesPerson { get; set; }
+        public string DocumentType { get; set; }
+        public Nullable<int> DocumentNumber { get; set; }
+        public Nullable<System.DateTime> DocumentDate { get; set; }
+        public Nullable<System.DateTime> DocumentDueDate { get; set; }
+        public string CustomerName { get; set; }
+        public Nullable<decimal> TotalColons { get; set; }
+        public Nullable<decimal> TaxColon { get; set; }
+        public Nullable<decimal> GrossProfitColons { get; set; }
+        public Nullable<decimal> PaidAmountColons { get; set; }
+        public Nullable<decimal> TotalDollar { get; set; }
+        public Nullable<decimal> TaxDollar { get; set; }
+        public Nullable<decimal> GrossProfitDollar { get; set; }
+        public Nullable<decimal> PaidAmountDollar { get; set; }
     }
 }
