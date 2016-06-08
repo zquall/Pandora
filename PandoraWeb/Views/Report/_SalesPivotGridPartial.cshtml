@@ -2,79 +2,111 @@
     settings.Name = "SalesPivotGrid";
     settings.CallbackRouteValues = new { Controller = "Report", Action = "SalesPivotGridPartial" };
 
-		settings.Fields.Add(field => {
+    settings.Width = Unit.Percentage(100);
+    settings.Height = Unit.Pixel(600);
+
+    settings.OptionsView.VerticalScrollingMode = PivotScrollingMode.Virtual;
+    settings.OptionsView.HorizontalScrollingMode = PivotScrollingMode.Virtual;
+    settings.OptionsView.VerticalScrollBarMode = ScrollBarMode.Auto;
+    settings.OptionsView.HorizontalScrollBarMode = ScrollBarMode.Auto;
+    settings.OptionsView.ShowFilterHeaders = false;
+
+    settings.OptionsPager.RowsPerPage = 25;
+    settings.OptionsPager.ColumnsPerPage = 15;
+    settings.OptionsPager.Visible = false;
+    settings.OptionsFilter.NativeCheckBoxes = false;
+
+    settings.Fields.Add(field => {
         field.Area = PivotArea.RowArea;
         field.FieldName = "Vendedor";
         field.Caption = "Vendedor";
     });
-		settings.Fields.Add(field => {
+    settings.Fields.Add(field => {
         field.Area = PivotArea.FilterArea;
         field.FieldName = "Tipo";
         field.Caption = "Tipo";
     });
-		settings.Fields.Add(field => {
+    settings.Fields.Add(field => {
         field.Area = PivotArea.RowArea;
         field.FieldName = "Area";
         field.Caption = "Area";
     });
-		settings.Fields.Add(field => {
+    settings.Fields.Add(field => {
         field.Area = PivotArea.FilterArea;
         field.FieldName = "Documento_";
         field.Caption = "Documento_";
     });
-		settings.Fields.Add(field => {
+    settings.Fields.Add(field => {
+        field.Area = PivotArea.FilterArea;
+        field.FieldName = "FechaDocumento";
+        field.Caption = "Fecha";
+    });
+    settings.Fields.Add(field =>
+    {
+        field.ID = "Ano";
         field.Area = PivotArea.ColumnArea;
         field.FieldName = "FechaDocumento";
-        field.Caption = "FechaDocumento";
+        field.Caption = "Año";
+        field.UnboundFieldName = "Ano";
+        field.GroupInterval = PivotGroupInterval.DateMonth;
     });
-		settings.Fields.Add(field => {
+    settings.Fields.Add(field =>
+    {
+        field.ID = "Mes";
+        field.Area = PivotArea.ColumnArea;
+        field.FieldName = "FechaDocumento";
+        field.Caption = "Mes";
+        field.UnboundFieldName = "Mes";
+        field.GroupInterval = PivotGroupInterval.DateMonth;
+    });
+    settings.Fields.Add(field => {
         field.Area = PivotArea.FilterArea;
         field.FieldName = "FechaVencimiento";
         field.Caption = "FechaVencimiento";
     });
-		settings.Fields.Add(field => {
+    settings.Fields.Add(field => {
         field.Area = PivotArea.RowArea;
         field.FieldName = "NombreCliente";
         field.Caption = "NombreCliente";
     });
-		settings.Fields.Add(field => {
+    settings.Fields.Add(field => {
         field.Area = PivotArea.DataArea;
         field.FieldName = "Total";
         field.Caption = "Total";
     });
-		settings.Fields.Add(field => {
+    settings.Fields.Add(field => {
         field.Area = PivotArea.DataArea;
         field.FieldName = "Impuesto";
         field.Caption = "Impuesto";
     });
-		settings.Fields.Add(field => {
+    settings.Fields.Add(field => {
         field.Area = PivotArea.DataArea;
         field.FieldName = "Utilidad";
         field.Caption = "Utilidad";
     });
-		settings.Fields.Add(field => {
+    settings.Fields.Add(field => {
         field.Area = PivotArea.DataArea;
         field.FieldName = "Pagado";
         field.Caption = "Pagado";
     });
-		settings.Fields.Add(field => {
+    settings.Fields.Add(field => {
         field.Area = PivotArea.DataArea;
         field.FieldName = "Total_";
         field.Caption = "Total_";
     });
-		settings.Fields.Add(field => {
+    settings.Fields.Add(field => {
         field.Area = PivotArea.DataArea;
         field.FieldName = "Impuesto_";
         field.Caption = "Impuesto_";
     });
-		settings.Fields.Add(field => {
+    settings.Fields.Add(field => {
         field.Area = PivotArea.DataArea;
         field.FieldName = "Utilidad_";
         field.Caption = "Utilidad_";
     });
-		settings.Fields.Add(field => {
+    settings.Fields.Add(field => {
         field.Area = PivotArea.DataArea;
         field.FieldName = "Pagado_";
         field.Caption = "Pagado_";
     });
-	}).Bind(Model).GetHtml()
+}).Bind(Model).GetHtml()
