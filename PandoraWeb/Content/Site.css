@@ -715,3 +715,15 @@
   padding-right: 5px;
   padding-left: 0px;
 }
+
+
+/* Fix the TabControl */ 
+.nonborderbox *
+{
+-webkit-box-sizing: content-box;
+     -moz-box-sizing: content-box;
+      box-sizing: content-box;
+}
+.dxtcLite_Moderno > .dxtc-content {
+    padding: 0;
+}

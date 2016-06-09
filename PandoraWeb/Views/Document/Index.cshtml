@@ -202,12 +202,13 @@
     </div>
 </div>
 
-<div class="panel-footer container-fluid">
+<div class="panel-footer container-fluid nonborderbox">
     @Html.DevExpress().PageControl(settings =>
 {
     settings.Name = "DocumentPageControl";
     settings.Width = Unit.Percentage(100);
-    settings.Height = 40;
+    settings.EnableTabScrolling = true;
+    settings.TabAlign = TabAlign.Justify;
     settings.TabPages.Add("Contenido").SetContent(() =>
     {
         Html.RenderPartial("_DocumentGridViewPartial", Model);
@@ -225,7 +226,6 @@
     });
 }).GetHtml()
 </div>
-
 <div class="panel-body container-fluid">
     <div class="row no-gutters">
         <div class="col-md-4">
