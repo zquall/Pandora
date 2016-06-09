@@ -148,7 +148,7 @@
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\Common\DocumentGridViewController.cs" />
+    <Compile Include="Controllers\Common\DocumentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RentalController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
@@ -168,15 +168,15 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Rental\Index.cshtml" />
-    <Content Include="Views\DocumentGridView\Index.cshtml" />
     <Content Include="Views\Rental\Quote.cshtml" />
-    <Content Include="Views\DocumentGridView\_DocumentGridViewPartial.cshtml" />
     <Content Include="Views\Shared\HeaderPartialView.cshtml" />
     <Content Include="Views\Shared\FooterPartialView.cshtml" />
     <Content Include="Views\Shared\ContentLeftPartialView.cshtml" />
     <Content Include="Views\Shared\_MainLayout.cshtml" />
     <Content Include="Views\Report\SalesByEmployeeByDivision.cshtml" />
     <Content Include="Views\Report\_SalesPivotGridPartial.cshtml" />
+    <Content Include="Views\Document\Index.cshtml" />
+    <Content Include="Views\Document\_DocumentGridViewPartial.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

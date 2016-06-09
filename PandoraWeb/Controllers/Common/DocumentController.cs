@@ -4,34 +4,35 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using DevExpress.XtraRichEdit.Fields;
 using PandoraWeb.Models.Common;
 
 namespace PandoraWeb.Controllers.Common
 {
-    public class DocumentGridViewController : Controller
+    public class DocumentController : Controller
     {
-        // GET: DocumentGridView
+        // GET: Document
         public ActionResult Index()
         {
-            return View();
+            var model = new List<DocumentGridViewModel>();
+            return View(model);
         }
 
         [ValidateInput(false)]
         public ActionResult DocumentGridViewPartial()
         {
-            var model = new List<DocumentGridViewModel> { new DocumentGridViewModel { Code = string.Empty, Quantity = 1, UnitPrice = 0m } };
-            return PartialView("~/Views/DocumentGridView/_DocumentGridViewPartial.cshtml", model);
+            var model = new List<DocumentGridViewModel>();
+            return PartialView("~/Views/Document/_DocumentGridViewPartial.cshtml", model);
         }
 
         [HttpPost, ValidateInput(false)]
         public ActionResult DocumentGridViewPartialAddNew([ModelBinder(typeof(DevExpressEditorsBinder))] PandoraWeb.Models.Common.DocumentGridViewModel item)
         {
-            var model = new List<DocumentGridViewModel>();
+            var model = new object[0];
             if (ModelState.IsValid)
             {
                 try
                 {
-                    model.Add(item);
                     // Insert here a code to insert the new item in your model
                 }
                 catch (Exception e)
@@ -41,7 +42,7 @@ namespace PandoraWeb.Controllers.Common
             }
             else
                 ViewData["EditError"] = "Please, correct all errors.";
-            return PartialView("~/Views/DocumentGridView/_DocumentGridViewPartial.cshtml", model);
+            return PartialView("~/Views/Document/_DocumentGridViewPartial.cshtml", model);
         }
         [HttpPost, ValidateInput(false)]
         public ActionResult DocumentGridViewPartialUpdate([ModelBinder(typeof(DevExpressEditorsBinder))] PandoraWeb.Models.Common.DocumentGridViewModel item)
@@ -60,7 +61,7 @@ namespace PandoraWeb.Controllers.Common
             }
             else
                 ViewData["EditError"] = "Please, correct all errors.";
-            return PartialView("~/Views/DocumentGridView/_DocumentGridViewPartial.cshtml", model);
+            return PartialView("~/Views/Document/_DocumentGridViewPartial.cshtml", model);
         }
         [HttpPost, ValidateInput(false)]
         public ActionResult DocumentGridViewPartialDelete(System.String Code)
@@ -77,7 +78,7 @@ namespace PandoraWeb.Controllers.Common
                     ViewData["EditError"] = e.Message;
                 }
             }
-            return PartialView("~/Views/DocumentGridView/_DocumentGridViewPartial.cshtml", model);
+            return PartialView("~/Views/Document/_DocumentGridViewPartial.cshtml", model);
         }
     }
 }

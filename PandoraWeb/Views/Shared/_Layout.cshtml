@@ -8,7 +8,6 @@
 
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
-    <link href="~/Content/Site.css" rel="stylesheet" type="text/css"/>
 
     @Html.DevExpress().GetStyleSheets(
     new StyleSheet { ExtensionSuite = ExtensionSuite.NavigationAndLayout },
@@ -42,6 +41,7 @@
 
 
 
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
 
 </head>
 <body>

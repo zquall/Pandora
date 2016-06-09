@@ -1,18 +1,12 @@
-@using System.Web.UI.WebControls
-@model IEnumerable<PandoraWeb.Models.Common.DocumentGridViewModel>
-
 @{
-    var grid = Html.DevExpress().GridView(settings =>
-    {
+    var grid = Html.DevExpress().GridView(settings => {
         settings.Name = "DocumentGridView";
+        settings.CallbackRouteValues = new { Controller = "Document", Action = "DocumentGridViewPartial" };
 
-        settings.CallbackRouteValues = new { Controller = "DocumentGridView", Action = "DocumentGridViewPartial" };
-        settings.Width = Unit.Percentage(100);
-
-        settings.SettingsEditing.AddNewRowRouteValues = new { Controller = "DocumentGridView", Action = "DocumentGridViewPartialAddNew" };
-        settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "DocumentGridView", Action = "DocumentGridViewPartialUpdate" };
-        settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "DocumentGridView", Action = "DocumentGridViewPartialDelete" };
-        settings.SettingsEditing.BatchUpdateRouteValues = new { Controller = "DocumentGridView", Action = "DocumentGridViewPartialBatchUpdate" };
+        settings.SettingsEditing.AddNewRowRouteValues = new { Controller = "Document", Action = "DocumentGridViewPartialAddNew" };
+        settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "Document", Action = "DocumentGridViewPartialUpdate" };
+        settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "Document", Action = "DocumentGridViewPartialDelete" };
+        settings.SettingsEditing.BatchUpdateRouteValues = new { Controller = "Document", Action = "DocumentGridViewPartialBatchUpdate" };
 
         settings.SettingsEditing.BatchEditSettings.EditMode = GridViewBatchEditMode.Row;
         settings.SettingsEditing.BatchEditSettings.StartEditAction = GridViewBatchStartEditAction.Click;
@@ -25,6 +19,7 @@
         settings.CommandColumn.ShowDeleteButton = true;
         settings.CommandColumn.ShowEditButton = false;
         settings.CommandColumn.ShowNewButtonInHeader = true;
+        settings.Width = Unit.Percentage(100);
 
         settings.KeyFieldName = "Code";
 
@@ -79,17 +74,15 @@
             }
         };
 
+
         settings.CellEditorInitialize = (s, e) =>
         {
             var editor = (ASPxEdit)e.Editor;
             editor.ValidationSettings.Display = Display.Dynamic;
         };
 
-
-
     });
-    if (ViewData["EditError"] != null)
-    {
+    if (ViewData["EditError"] != null){
         grid.SetEditErrorText((string)ViewData["EditError"]);
     }
 }
