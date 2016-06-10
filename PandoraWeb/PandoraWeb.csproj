@@ -148,6 +148,7 @@
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BusinessIntelligenceController.cs" />
     <Compile Include="Controllers\Common\DocumentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RentalController.cs" />
@@ -155,10 +156,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\PivotGridDataOutputHelper.cs" />
+    <Compile Include="Helpers\PivotGridDataExportHelper.cs" />
+    <Compile Include="Models\BusinessIntelligence\BusinessIntelligenceModel.cs" />
+    <Compile Include="Models\BusinessIntelligence\BusinessIntelligenceSettings.cs" />
     <Compile Include="Models\Common\CommonEnums.cs" />
     <Compile Include="Models\Common\DocumentGridViewModel.cs" />
-    <Compile Include="Models\PivotGridExportOptions.cs" />
+    <Compile Include="Models\PivotGrid\PivotGridSettingsBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -174,9 +177,11 @@
     <Content Include="Views\Shared\ContentLeftPartialView.cshtml" />
     <Content Include="Views\Shared\_MainLayout.cshtml" />
     <Content Include="Views\Report\SalesByEmployeeByDivision.cshtml" />
-    <Content Include="Views\Report\_SalesPivotGridPartial.cshtml" />
     <Content Include="Views\Document\Index.cshtml" />
     <Content Include="Views\Document\_DocumentGridViewPartial.cshtml" />
+    <Content Include="Views\BusinessIntelligence\Index.cshtml" />
+    <Content Include="Views\BusinessIntelligence\SalesByEmployeeByDivision.cshtml" />
+    <Content Include="Views\BusinessIntelligence\_PivotGridPartial.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -196,6 +201,10 @@
     <ProjectReference Include="..\DataAccess\DataAccess.csproj">
       <Project>{4647f511-3735-4d4f-b084-b2bf6f7bc83a}</Project>
       <Name>DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataObjects\DataObjects.csproj">
+      <Project>{02ae1c6d-6eb0-45af-aaf0-cc7fc456c8fe}</Project>
+      <Name>DataObjects</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

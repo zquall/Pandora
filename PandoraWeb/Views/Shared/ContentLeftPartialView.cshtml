@@ -32,5 +32,15 @@
         group.Items.Add("Item 4");
         group.Items.Add("Item 5");
     });
+    settings.Groups.Add(group =>
+    {
+        group.Text = "Pandora BI";
+        group.HeaderImage.Url = "~/Images/Menu/reports.png";
+        group.Items.Add("Ventas x Empleado", "", "", "~/BusinessIntelligence/SalesByEmployeeByDivision");
+        group.Items.Add("Item 2");
+        group.Items.Add("Item 3");
+        group.Items.Add("Item 4");
+        group.Items.Add("Item 5");
+    });
 }).GetHtml()
 </div>

@@ -1,0 +1,68 @@
+﻿using System.Collections.Generic;
+using System.Web.Mvc;
+using System.Web.UI.WebControls;
+using DataObjects.Models.PivotGrid;
+using DevExpress.Export;
+using DevExpress.Utils;
+using DevExpress.Web;
+using DevExpress.Web.ASPxPivotGrid;
+using DevExpress.Web.Mvc;
+using DevExpress.XtraPivotGrid;
+using DevExpress.XtraPrinting;
+using PandoraWeb.Models.BusinessIntelligence;
+using PandoraWeb.Models.PivotGrid;
+
+namespace PandoraWeb.Helpers
+{
+    public class PivotGridDataExportHelper
+    {
+
+        public static ActionResult ExportActionResult(PivotGridExportOptionsModel optionsModel, BusinessIntelligenceModel model)
+        {
+            if (exportTypes == null)
+                exportTypes = CreateExportTypes();
+
+            var format = optionsModel.ExportType;
+
+            switch (format)
+            {
+                case PivotGridExportFormats.Excel:
+                    return exportTypes[format].ExcelMethod(model.PivotGridSettings, model.BindData, new XlsxExportOptionsEx() { ExportType = ExportType.WYSIWYG });
+
+                case PivotGridExportFormats.ExcelDataAware:
+                    XlsxExportOptionsEx exportOptions = new XlsxExportOptionsEx() { ExportType = ExportType.DataAware };
+                    exportOptions.AllowFixedColumnHeaderPanel = exportOptions.AllowFixedColumns = optionsModel.DataAwareOptions.AllowFixedColumnAndRowArea ? DefaultBoolean.True : DefaultBoolean.False;
+                    exportOptions.AllowGrouping = optionsModel.DataAwareOptions.AllowGrouping ? DefaultBoolean.True : DefaultBoolean.False;
+                    exportOptions.RawDataMode = optionsModel.DataAwareOptions.ExportRawData;
+                    exportOptions.TextExportMode = optionsModel.DataAwareOptions.ExportDisplayText ? TextExportMode.Text : TextExportMode.Value;
+                    return exportTypes[format].ExcelMethod(model.PivotGridSettings, model.BindData, exportOptions);
+                default:
+                    return exportTypes[format].Method(model.PivotGridSettings, model.BindData);
+            }
+        }
+
+        static Dictionary<PivotGridExportFormats, PivotGridExportType> exportTypes;
+        static Dictionary<PivotGridExportFormats, PivotGridExportType> CreateExportTypes()
+        {
+            Dictionary<PivotGridExportFormats, PivotGridExportType> types = new Dictionary<PivotGridExportFormats, PivotGridExportType>();
+            types.Add(PivotGridExportFormats.Pdf, new PivotGridExportType { Title = "Export to PDF", Method = PivotGridExtension.ExportToPdf });
+            types.Add(PivotGridExportFormats.Excel, new PivotGridExportType { Title = "Export to XLSX", ExcelMethod = PivotGridExtension.ExportToXlsx });
+            types.Add(PivotGridExportFormats.ExcelDataAware, new PivotGridExportType { Title = "Export to XLSX", ExcelMethod = PivotGridExtension.ExportToXlsx });
+            types.Add(PivotGridExportFormats.Mht, new PivotGridExportType { Title = "Export to MHT", Method = PivotGridExtension.ExportToMht });
+            types.Add(PivotGridExportFormats.Rtf, new PivotGridExportType { Title = "Export to RTF", Method = PivotGridExtension.ExportToRtf });
+            types.Add(PivotGridExportFormats.Text, new PivotGridExportType { Title = "Export to TEXT", Method = PivotGridExtension.ExportToText });
+            types.Add(PivotGridExportFormats.Html, new PivotGridExportType { Title = "Export to HTML", Method = PivotGridExtension.ExportToHtml });
+            return types;
+        }
+
+        public delegate ActionResult PivotGridExportMethod(PivotGridSettings settings, object dataObject);
+
+        public delegate ActionResult PivotGridDataAwareExportMethod(PivotGridSettings settings, object dataObject, XlsxExportOptions exportOptions);
+        public class PivotGridExportType
+        {
+            public string Title { get; set; }
+            public PivotGridExportMethod Method { get; set; }
+            public PivotGridDataAwareExportMethod ExcelMethod { get; set; }
+        }
+    }
+}

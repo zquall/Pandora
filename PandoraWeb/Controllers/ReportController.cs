@@ -5,7 +5,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using DevExpress.Web.Demos;
+using DataObjects.Models.PivotGrid;
+using PandoraWeb.Helpers;
+using PandoraWeb.Models.Common;
 
 namespace PandoraWeb.Controllers
 {
@@ -16,10 +18,7 @@ namespace PandoraWeb.Controllers
         {
             return View();
         }
-        public ActionResult SalesByEmployeeByDivision()
-        {
-            return View();
-        }
+
 
         [ValidateInput(false)]
         public ActionResult SalesPivotGridPartial()
@@ -28,33 +27,17 @@ namespace PandoraWeb.Controllers
             var model = service.GetSalesByEmployeeByDivision(DateTime.Today.AddMonths(-3), DateTime.Today);
             return PartialView("_SalesPivotGridPartial", model);
         }
-
-
+        
         [HttpGet]
         public ActionResult Export()
         {
-            ViewBag.DemoOptions = ViewBag.DemoOptions ?? new PivotGridExportDemoOptions();
+            ViewBag.DemoOptions = ViewBag.DemoOptions ?? new PivotGridExportOptionsModel();
 
             var service = new ReportSalesService();
             var model = service.GetSalesByEmployeeByDivision(DateTime.Today.AddMonths(-3), DateTime.Today);
             return View("_SalesPivotGridPartial", model);
         }
-        [HttpPost]
-        public ActionResult SalesByEmployeeByDivision(PivotGridExportDemoOptions options)
-        {
 
-            var service = new ReportSalesService();
-            var model = service.GetSalesByEmployeeByDivision(DateTime.Today.AddMonths(-3), DateTime.Today);
-            if (Request.Params["ExportTo"] == null)
-            { // Theme changing
-                ViewBag.DemoOptions = options;
-
-
-                return View("_SalesPivotGridPartial", model);
-            }
-
-            return PivotGridDataOutputDemosHelper.GetExportActionResult(options, model);
-        }
         public ActionResult ExportPartial()
         {
             var service = new ReportSalesService();
