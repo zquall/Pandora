@@ -1,0 +1,81 @@
+﻿@using DataObjects.Models.PivotGrid
+@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+<form class="form-inline" method="post" action="SalesByEmployeeByDivision" id="filterForm">
+    <div class="form-group">
+        <label for="dateStart">Fecha Inicio</label>
+    </div>
+    <div class="form-group">
+        @Html.DevExpress().DateEdit(
+                settings =>
+                {
+                    settings.Name = "dateStart";
+                    settings.Properties.DisplayFormatString = "dd/MM/yyyy";
+                    settings.Properties.EditFormatString = "dd/MM/yyyy";
+                    settings.Date = DateTime.Today;
+                }
+            ).GetHtml()
+    </div> <div class="form-group">
+        <label for="dateStart">Fecha Final</label>
+    </div>
+    <div class="form-group">
+        @Html.DevExpress().DateEdit(
+                settings =>
+                {
+                    settings.Name = "dateEnd";
+                    settings.Properties.DisplayFormatString = "dd/MM/yyyy";
+                    settings.Properties.EditFormatString = "dd/MM/yyyy";
+                    settings.Date = DateTime.Today;
+                }
+            ).GetHtml()
+    </div>
+    <div class="form-group">
+        <label for="PivotGridExportFormat">Exportar</label>
+        @Html.DropDownList("ExportFormat", EnumHelper.GetSelectList(typeof (ExportFormats)), "", new {@class = "form-control"})
+
+    </div>
+    <button type="submit" class="btn btn-default">Export</button>
+
+
+    @RenderBody()
+</form>
+
+@*@using (Html.BeginForm())
+{
+    @Html.DevExpress().FormLayout(settings =>
+{
+    settings.Name = "sadfsdf";
+
+    settings.Items.AddGroupItem(g =>
+    {
+        g.Caption = "Export To";
+        g.GroupBoxDecoration = GroupBoxDecoration.HeadingLine;
+        g.SettingsItems.ShowCaption = DefaultBoolean.False;
+        g.Items.Add(i =>
+        {
+            i.FieldName = "ExportType";
+            i.NestedExtension().ComboBox(s =>
+            {
+                s.Properties.ClientSideEvents.SelectedIndexChanged = "OnExportTypeChanged";
+            });
+        });
+        g.Items.Add(i =>
+        {
+            i.Name = "ExportTo";
+            i.NestedExtension().Button(s =>
+            {
+                s.Text = "Export";
+                s.UseSubmitBehavior = true;
+                s.Width = Unit.Percentage(100);
+            });
+        });
+    });
+}).Bind(ViewBag.DemoOptions).GetHtml()
+
+
+
+
+}*@

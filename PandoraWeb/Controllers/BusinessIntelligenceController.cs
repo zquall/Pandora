@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Web.Mvc;
 using Core;
 using DataObjects.Models.PivotGrid;
@@ -25,7 +26,8 @@ namespace PandoraWeb.Controllers
         {
             var model = new BusinessIntelligenceModel();
             var service = new ReportSalesService();
-            model.BindData = service.GetSalesByEmployeeByDivision(DateTime.Today.AddMonths(-3), DateTime.Today);
+            // model.BindData = service.GetSalesByEmployeeByDivision(DateTime.Today.AddMonths(-3), DateTime.Today);
+            model.BindData = new List<object>();
             model.PivotGridSettings = BusinessIntelligenceSettings.SalesByEmployeeByDivisionSettings();
 
             return PartialView("_PivotGridPartial", model);
@@ -36,7 +38,8 @@ namespace PandoraWeb.Controllers
         {
             var model = new BusinessIntelligenceModel();
             var service = new ReportSalesService();
-            model.BindData = service.GetSalesByEmployeeByDivision(DateTime.Today.AddMonths(-3), DateTime.Today);
+           // model.BindData = service.GetSalesByEmployeeByDivision(DateTime.Today.AddMonths(-3), DateTime.Today);
+            model.BindData = new List<object>();
             model.PivotGridSettings = BusinessIntelligenceSettings.SalesByEmployeeByDivisionSettings();
 
             //if (Request.Params["ExportTo"] == null)

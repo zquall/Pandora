@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataObjects.Models.PivotGrid
 {
-    public enum PivotGridExportFormats { ExcelDataAware, Pdf, Excel, Mht, Rtf, Text, Html }
+    public enum ExportFormats { ExcelDataAware, Pdf, Excel, Mht, Rtf, Text, Html }
 
     public class PivotGridExportOptionsModel
     {
@@ -16,7 +16,7 @@ namespace DataObjects.Models.PivotGrid
             DataAwareOptions = new PivotGridDataAwareOptions();
         }
 
-        public PivotGridExportFormats ExportType { get; set; }
+        public ExportFormats ExportFormat { get; set; }
         public PivotGridExportOptions ExportOptions { get; set; }
         public PivotGridDataAwareOptions DataAwareOptions { get; set; }
     }

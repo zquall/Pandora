@@ -141,6 +141,9 @@
     <Content Include="Images\Menu\rental-quote.png" />
     <Content Include="Images\Menu\rental.png" />
     <Content Include="Images\Menu\reports.png" />
+    <Content Include="Scripts\angular-mocks.js" />
+    <Content Include="Scripts\angular.js" />
+    <Content Include="Scripts\angular.min.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -168,7 +171,7 @@
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_RootLayout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Rental\Index.cshtml" />
     <Content Include="Views\Rental\Quote.cshtml" />
@@ -182,6 +185,8 @@
     <Content Include="Views\BusinessIntelligence\Index.cshtml" />
     <Content Include="Views\BusinessIntelligence\SalesByEmployeeByDivision.cshtml" />
     <Content Include="Views\BusinessIntelligence\_PivotGridPartial.cshtml" />
+    <Content Include="Scripts\angular.min.js.map" />
+    <Content Include="Views\BusinessIntelligence\BusinessIntelligenceLayout.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -191,7 +196,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Scripts\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj">

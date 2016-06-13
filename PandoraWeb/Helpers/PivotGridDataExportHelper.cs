@@ -22,14 +22,14 @@ namespace PandoraWeb.Helpers
             if (exportTypes == null)
                 exportTypes = CreateExportTypes();
 
-            var format = optionsModel.ExportType;
+            var format = optionsModel.ExportFormat;
 
             switch (format)
             {
-                case PivotGridExportFormats.Excel:
+                case ExportFormats.Excel:
                     return exportTypes[format].ExcelMethod(model.PivotGridSettings, model.BindData, new XlsxExportOptionsEx() { ExportType = ExportType.WYSIWYG });
 
-                case PivotGridExportFormats.ExcelDataAware:
+                case ExportFormats.ExcelDataAware:
                     XlsxExportOptionsEx exportOptions = new XlsxExportOptionsEx() { ExportType = ExportType.DataAware };
                     exportOptions.AllowFixedColumnHeaderPanel = exportOptions.AllowFixedColumns = optionsModel.DataAwareOptions.AllowFixedColumnAndRowArea ? DefaultBoolean.True : DefaultBoolean.False;
                     exportOptions.AllowGrouping = optionsModel.DataAwareOptions.AllowGrouping ? DefaultBoolean.True : DefaultBoolean.False;
@@ -41,17 +41,17 @@ namespace PandoraWeb.Helpers
             }
         }
 
-        static Dictionary<PivotGridExportFormats, PivotGridExportType> exportTypes;
-        static Dictionary<PivotGridExportFormats, PivotGridExportType> CreateExportTypes()
+        static Dictionary<ExportFormats, PivotGridExportType> exportTypes;
+        static Dictionary<ExportFormats, PivotGridExportType> CreateExportTypes()
         {
-            Dictionary<PivotGridExportFormats, PivotGridExportType> types = new Dictionary<PivotGridExportFormats, PivotGridExportType>();
-            types.Add(PivotGridExportFormats.Pdf, new PivotGridExportType { Title = "Export to PDF", Method = PivotGridExtension.ExportToPdf });
-            types.Add(PivotGridExportFormats.Excel, new PivotGridExportType { Title = "Export to XLSX", ExcelMethod = PivotGridExtension.ExportToXlsx });
-            types.Add(PivotGridExportFormats.ExcelDataAware, new PivotGridExportType { Title = "Export to XLSX", ExcelMethod = PivotGridExtension.ExportToXlsx });
-            types.Add(PivotGridExportFormats.Mht, new PivotGridExportType { Title = "Export to MHT", Method = PivotGridExtension.ExportToMht });
-            types.Add(PivotGridExportFormats.Rtf, new PivotGridExportType { Title = "Export to RTF", Method = PivotGridExtension.ExportToRtf });
-            types.Add(PivotGridExportFormats.Text, new PivotGridExportType { Title = "Export to TEXT", Method = PivotGridExtension.ExportToText });
-            types.Add(PivotGridExportFormats.Html, new PivotGridExportType { Title = "Export to HTML", Method = PivotGridExtension.ExportToHtml });
+            Dictionary<ExportFormats, PivotGridExportType> types = new Dictionary<ExportFormats, PivotGridExportType>();
+            types.Add(ExportFormats.Pdf, new PivotGridExportType { Title = "Export to PDF", Method = PivotGridExtension.ExportToPdf });
+            types.Add(ExportFormats.Excel, new PivotGridExportType { Title = "Export to XLSX", ExcelMethod = PivotGridExtension.ExportToXlsx });
+            types.Add(ExportFormats.ExcelDataAware, new PivotGridExportType { Title = "Export to XLSX", ExcelMethod = PivotGridExtension.ExportToXlsx });
+            types.Add(ExportFormats.Mht, new PivotGridExportType { Title = "Export to MHT", Method = PivotGridExtension.ExportToMht });
+            types.Add(ExportFormats.Rtf, new PivotGridExportType { Title = "Export to RTF", Method = PivotGridExtension.ExportToRtf });
+            types.Add(ExportFormats.Text, new PivotGridExportType { Title = "Export to TEXT", Method = PivotGridExtension.ExportToText });
+            types.Add(ExportFormats.Html, new PivotGridExportType { Title = "Export to HTML", Method = PivotGridExtension.ExportToHtml });
             return types;
         }
 
