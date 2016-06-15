@@ -183,6 +183,7 @@
     <Content Include="Views\Document\Index.cshtml" />
     <Content Include="Views\Document\_DocumentGridViewPartial.cshtml" />
     <Content Include="Views\BusinessIntelligence\Index.cshtml" />
+    <Content Include="Views\Shared\Filters\_DatePanelPartialView.cshtml" />
     <Content Include="Views\BusinessIntelligence\SalesByEmployeeByDivision.cshtml" />
     <Content Include="Views\BusinessIntelligence\_PivotGridPartial.cshtml" />
     <Content Include="Scripts\angular.min.js.map" />
