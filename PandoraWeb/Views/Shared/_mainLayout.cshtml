@@ -1,6 +1,7 @@
+@using PandoraWeb.Models.Common
 @{ Layout = "~/Views/Shared/_RootLayout.cshtml"; }
 
-    @Html.DevExpress().Panel(settings => {
+@Html.DevExpress().Panel(settings => {
         settings.Name = "LeftPane";
         settings.FixedPosition = PanelFixedPosition.WindowLeft;
         settings.Collapsible = true;
@@ -12,6 +13,27 @@
         });
     }).GetHtml()
 
-    <div class="contentPane">
-        @RenderBody()
-    </div>
+<div class="contentPane">
+
+    @Html.DevExpress().Panel(settings =>
+    {
+        settings.Name = "HeaderPane";
+        settings.FixedPosition = PanelFixedPosition.None;
+        settings.Collapsible = true;
+        settings.SettingsAdaptivity.CollapseAtWindowInnerWidth = 500;
+        settings.ControlStyle.CssClass = "headerPane";
+        settings.Styles.Panel.CssClass = "panel";
+        settings.Styles.ExpandedPanel.CssClass = "expandedPanel";
+        settings.Styles.ExpandBar.CssClass = "bar";
+        settings.SetContent(() =>
+        {
+            Html.RenderPartial("HeaderPartialView", CommonEnums.HeaderViewRenderMode.Full);
+        });
+        settings.SetExpandBarTemplateContent((c) =>
+        {
+            Html.RenderPartial("HeaderPartialView", CommonEnums.HeaderViewRenderMode.Title);
+        });
+    }).GetHtml()
+
+    @RenderBody()
+</div>

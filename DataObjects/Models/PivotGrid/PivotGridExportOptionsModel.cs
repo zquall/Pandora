@@ -6,10 +6,13 @@ using System.Threading.Tasks;
 
 namespace DataObjects.Models.PivotGrid
 {
-    public enum ExportFormats { ExcelDataAware, Pdf, Excel, Mht, Rtf, Text, Html }
+    public enum ExportFormats { Excel, Pdf, Mht, Rtf, Text, Html }
 
     public class PivotGridExportOptionsModel
     {
+        public DateTime DateStart { get; set; }
+        public DateTime DateEnd { get; set; }
+
         public PivotGridExportOptionsModel()
         {
             ExportOptions = new PivotGridExportOptions();

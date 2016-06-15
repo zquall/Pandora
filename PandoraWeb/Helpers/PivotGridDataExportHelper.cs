@@ -26,10 +26,10 @@ namespace PandoraWeb.Helpers
 
             switch (format)
             {
-                case ExportFormats.Excel:
-                    return exportTypes[format].ExcelMethod(model.PivotGridSettings, model.BindData, new XlsxExportOptionsEx() { ExportType = ExportType.WYSIWYG });
+                //case ExportFormats.Excel:
+                //    return exportTypes[format].ExcelMethod(model.PivotGridSettings, model.BindData, new XlsxExportOptionsEx() { ExportType = ExportType.WYSIWYG });
 
-                case ExportFormats.ExcelDataAware:
+                case ExportFormats.Excel:
                     XlsxExportOptionsEx exportOptions = new XlsxExportOptionsEx() { ExportType = ExportType.DataAware };
                     exportOptions.AllowFixedColumnHeaderPanel = exportOptions.AllowFixedColumns = optionsModel.DataAwareOptions.AllowFixedColumnAndRowArea ? DefaultBoolean.True : DefaultBoolean.False;
                     exportOptions.AllowGrouping = optionsModel.DataAwareOptions.AllowGrouping ? DefaultBoolean.True : DefaultBoolean.False;
@@ -47,7 +47,6 @@ namespace PandoraWeb.Helpers
             Dictionary<ExportFormats, PivotGridExportType> types = new Dictionary<ExportFormats, PivotGridExportType>();
             types.Add(ExportFormats.Pdf, new PivotGridExportType { Title = "Export to PDF", Method = PivotGridExtension.ExportToPdf });
             types.Add(ExportFormats.Excel, new PivotGridExportType { Title = "Export to XLSX", ExcelMethod = PivotGridExtension.ExportToXlsx });
-            types.Add(ExportFormats.ExcelDataAware, new PivotGridExportType { Title = "Export to XLSX", ExcelMethod = PivotGridExtension.ExportToXlsx });
             types.Add(ExportFormats.Mht, new PivotGridExportType { Title = "Export to MHT", Method = PivotGridExtension.ExportToMht });
             types.Add(ExportFormats.Rtf, new PivotGridExportType { Title = "Export to RTF", Method = PivotGridExtension.ExportToRtf });
             types.Add(ExportFormats.Text, new PivotGridExportType { Title = "Export to TEXT", Method = PivotGridExtension.ExportToText });

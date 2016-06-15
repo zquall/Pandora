@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Pandora</title>
 
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-    <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
 
     @Html.DevExpress().GetStyleSheets(
     new StyleSheet { ExtensionSuite = ExtensionSuite.NavigationAndLayout },
@@ -38,65 +38,46 @@
     new Script { ExtensionSuite = ExtensionSuite.Spreadsheet },
     new Script { ExtensionSuite = ExtensionSuite.SpellChecker }
 )
-    
+
     <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
     <script src="~/Scripts/angular.min.js"></script>
 </head>
 <body>
-  
-
     <div class="body-content">
-        @Html.DevExpress().Panel(settings =>
-      {
-          settings.Name = "HeaderPane";
-          settings.FixedPosition = PanelFixedPosition.WindowTop;
-          settings.Collapsible = true;
-          settings.SettingsAdaptivity.CollapseAtWindowInnerWidth = 500;
-          settings.ControlStyle.CssClass = "headerPane";
-          settings.Styles.Panel.CssClass = "panel";
-          settings.Styles.ExpandedPanel.CssClass = "expandedPanel";
-          settings.Styles.ExpandBar.CssClass = "bar";
-          settings.SetContent(() =>
-          {
-              Html.RenderPartial("HeaderPartialView", CommonEnums.HeaderViewRenderMode.Full);
-          });
-          settings.SetExpandBarTemplateContent((c) =>
-          {
-              Html.RenderPartial("HeaderPartialView", CommonEnums.HeaderViewRenderMode.Title);
-          });
-      }).GetHtml()
+
 
         <script type="text/javascript">
-        function updateHeaderMenuOrientation(){
-            var orientation = HeaderPane.IsExpandable() ? 'Vertical' : 'Horizontal';
-            if(orientation !== HeaderMenu.GetOrientation())
-                HeaderMenu.SetOrientation(orientation);
-        }
-        var collection = ASPxClientControl.GetControlCollection();
-        collection.ControlsInitialized.AddHandler(updateHeaderMenuOrientation);
-        collection.BrowserWindowResized.AddHandler(updateHeaderMenuOrientation);
+            function updateHeaderMenuOrientation() {
+                var orientation = HeaderPane.IsExpandable() ? 'Vertical' : 'Horizontal';
+                if (orientation !== HeaderMenu.GetOrientation())
+                    HeaderMenu.SetOrientation(orientation);
+            }
+
+            var collection = ASPxClientControl.GetControlCollection();
+            collection.ControlsInitialized.AddHandler(updateHeaderMenuOrientation);
+            collection.BrowserWindowResized.AddHandler(updateHeaderMenuOrientation);
         </script>
 
         @Html.DevExpress().Panel(settings =>
-{
-    settings.Name = "MainPane";
-    settings.ControlStyle.CssClass = "mainContentPane";
-    settings.SetContent(RenderBody().ToHtmlString());
-}).GetHtml()
+        {
+            settings.Name = "MainPane";
+            settings.ControlStyle.CssClass = "mainContentPane";
+            settings.SetContent(RenderBody().ToHtmlString());
+        }).GetHtml()
 
         @Html.DevExpress().Panel(settings =>
-{
-    settings.Name = "FooterPane";
-    settings.Height = 40;
-    settings.FixedPosition = PanelFixedPosition.WindowBottom;
-    settings.SettingsAdaptivity.HideAtWindowInnerWidth = 500;
-    settings.ControlStyle.CssClass = "footerPane";
-    settings.Styles.Panel.CssClass = "panel";
-    settings.SetContent(() =>
-    {
-        Html.RenderPartial("FooterPartialView");
-    });
-}).GetHtml()
+            {
+        settings.Name = "FooterPane";
+        settings.Height = 40;
+        settings.FixedPosition = PanelFixedPosition.WindowBottom;
+        settings.SettingsAdaptivity.HideAtWindowInnerWidth = 500;
+        settings.ControlStyle.CssClass = "footerPane";
+        settings.Styles.Panel.CssClass = "panel";
+        settings.SetContent(() =>
+        {
+            Html.RenderPartial("FooterPartialView");
+        });
+        }).GetHtml()
 
 
     </div>

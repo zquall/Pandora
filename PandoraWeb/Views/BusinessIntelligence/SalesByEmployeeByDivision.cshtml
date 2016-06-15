@@ -1,10 +1,10 @@
-﻿@model PandoraWeb.Models.BusinessIntelligence.BusinessIntelligenceModel
+﻿@using DataObjects.Models.PivotGrid
 @{
     ViewBag.Title = "SalesByEmployeeByDivision";
     Layout = "~/Views/BusinessIntelligence/BusinessIntelligenceLayout.cshtml";
 }
 
-
+@{Html.RenderPartial("_PivotGridFilterPartial");}
 
 @Html.Action("SalesByEmployeeByDivisionPartial")
 

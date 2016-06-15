@@ -1,0 +1,47 @@
+﻿@using DataObjects.Models.PivotGrid
+@model PandoraWeb.Models.BusinessIntelligence.BusinessIntelligenceModel
+
+
+
+<div class="panel-heading">
+    <div class="form-group">
+        <label for="dateStart">Fecha Inicio</label>
+    </div>
+    <div class="form-group">
+        @Html.DevExpress().DateEdit(
+                settings =>
+                {
+                    settings.Name = "dateStart";
+                    settings.Properties.DisplayFormatString = "dd/MM/yyyy";
+                    settings.Properties.EditFormatString = "dd/MM/yyyy";
+                    settings.Date = @Model.PivotGridExportOptions.DateStart;
+                }
+                ).GetHtml()
+    </div>
+    <div class="form-group">
+        <label for="dateStart">Fecha Final</label>
+    </div>
+    <div class="form-group">
+        @Html.DevExpress().DateEdit(
+                    settings =>
+                    {
+                        settings.Name = "dateEnd";
+                        settings.Properties.DisplayFormatString = "dd/MM/yyyy";
+                        settings.Properties.EditFormatString = "dd/MM/yyyy";
+                        settings.Date = @Model.PivotGridExportOptions.DateEnd;
+                    }
+                    ).GetHtml()
+    </div>
+    <div class="form-group">
+
+        <button type="button" class="btn btn-default">Actualizar</button>
+
+    </div>
+    <div class="form-group pull-right">
+        <label for="PivotGridExportFormat">Exportar</label>
+        @Html.DropDownList("ExportFormat", EnumHelper.GetSelectList(typeof(ExportFormats)), "", new { @class = "form-control" })
+
+        <button type="submit" class="btn btn-default">Export</button>
+
+    </div>
+</div>

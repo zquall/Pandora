@@ -187,6 +187,7 @@
     <Content Include="Views\BusinessIntelligence\_PivotGridPartial.cshtml" />
     <Content Include="Scripts\angular.min.js.map" />
     <Content Include="Views\BusinessIntelligence\BusinessIntelligenceLayout.cshtml" />
+    <Content Include="Views\BusinessIntelligence\_PivotGridFilterPartial.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
