@@ -28,5 +28,7 @@ namespace DataAccess
         public Nullable<decimal> TaxDollar { get; set; }
         public Nullable<decimal> GrossProfitDollar { get; set; }
         public Nullable<decimal> PaidAmountDollar { get; set; }
+        public Nullable<decimal> DiscountColons { get; set; }
+        public Nullable<decimal> DiscountDollar { get; set; }
     }
 }

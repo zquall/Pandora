@@ -2,16 +2,17 @@
 using DevExpress.Web;
 using DevExpress.Web.ASPxPivotGrid;
 using DevExpress.Web.Mvc;
+using PandoraWeb.Models.BusinessIntelligence;
 
 namespace PandoraWeb.Models.PivotGrid
 {
     public sealed class PivotGridSettingsBase : PivotGridSettings
     {
-        public PivotGridSettingsBase(string controller, string action)
+        public PivotGridSettingsBase(string controller, string action, BusinessIntelligenceModel model)
         {
             Name = "PandoraPivotGrid";
             //CallbackRouteValues = new { Controller = "DataOutput", Action = "ExportPartial" };
-            CallbackRouteValues = new { Controller = controller, Action = action };
+            CallbackRouteValues = new { Controller = controller, Action = action, DateStart = model.PivotGridExportOptions.DateStart, DateEnd = model.PivotGridExportOptions.DateEnd };
             //CallbackRouteValues = new { Controller = "BusinessIntelligence", Action = "SalesByEmployeeByDivision" };
 
             Width = Unit.Percentage(100);

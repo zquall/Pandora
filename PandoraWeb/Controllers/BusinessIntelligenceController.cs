@@ -34,33 +34,28 @@ namespace PandoraWeb.Controllers
         public ActionResult SalesByEmployeeByDivision(PivotGridExportOptionsModel optionsModel)
         {
             var model = new BusinessIntelligenceModel();
-            var service = new ReportSalesService();
-            model.BindData = service.GetSalesByEmployeeByDivision(optionsModel.DateStart, optionsModel.DateEnd);
+         
 
-            model.PivotGridSettings = BusinessIntelligenceSettings.SalesByEmployeeByDivisionSettings();
+            model.PivotGridSettings = BusinessIntelligenceSettings.SalesByEmployeeByDivisionSettings(model);
             model.PivotGridExportOptions = optionsModel;
 
             if (Request.Params["ExportTo"] == null)
-            { // Theme changing
-                ViewBag.DemoOptions = optionsModel;
+            { 
                 return View(model);
             }
+
+            var service = new ReportSalesService();
+            model.BindData = service.GetSalesByEmployeeByDivision(optionsModel.DateStart, optionsModel.DateEnd);
 
             return PivotGridDataExportHelper.ExportActionResult(optionsModel, model);
         }
 
-        public ActionResult SalesByEmployeeByDivisionPartial()
+        public ActionResult SalesByEmployeeByDivisionPartial(BusinessIntelligenceModel model)
         {
-            var model = new BusinessIntelligenceModel();
             var service = new ReportSalesService();
-
-            var lastMonthDate = DateTime.Today.AddMonths(-1);
-            var startDate = new DateTime(lastMonthDate.Year, lastMonthDate.Month, 1);
-            var endDate = startDate.AddMonths(1).AddDays(-1);
-            
-            model.BindData = service.GetSalesByEmployeeByDivision(startDate, endDate);
+            model.BindData = service.GetSalesByEmployeeByDivision(model.PivotGridExportOptions.DateStart, model.PivotGridExportOptions.DateEnd);
             // model.BindData = new List<object>();
-            model.PivotGridSettings = BusinessIntelligenceSettings.SalesByEmployeeByDivisionSettings();
+            model.PivotGridSettings = BusinessIntelligenceSettings.SalesByEmployeeByDivisionSettings(model);
 
             return PartialView("_PivotGridPartial", model);
         }

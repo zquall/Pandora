@@ -42,6 +42,8 @@
           <Property Type="Decimal" Name="TaxDollar" Nullable="true" Precision="38" Scale="17" />
           <Property Type="Decimal" Name="GrossProfitDollar" Nullable="true" Precision="38" Scale="17" />
           <Property Type="Decimal" Name="PaidAmountDollar" Nullable="true" Precision="38" Scale="17" />
+          <Property Type="Decimal" Name="DiscountColons" Nullable="true" Precision="21" Scale="6" />
+          <Property Type="Decimal" Name="DiscountDollar" Nullable="true" Precision="38" Scale="17" />
           </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -68,6 +70,8 @@
                 <ScalarProperty Name="TaxDollar" ColumnName="TaxDollar" />
                 <ScalarProperty Name="GrossProfitDollar" ColumnName="GrossProfitDollar" />
                 <ScalarProperty Name="PaidAmountDollar" ColumnName="PaidAmountDollar" />
+                <ScalarProperty Name="DiscountColons" ColumnName="DiscountColons" />
+                <ScalarProperty Name="DiscountDollar" ColumnName="DiscountDollar" />
                 </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
