@@ -162,6 +162,7 @@
     <Compile Include="Helpers\PivotGridDataExportHelper.cs" />
     <Compile Include="Models\BusinessIntelligence\BusinessIntelligenceModel.cs" />
     <Compile Include="Models\BusinessIntelligence\BusinessIntelligenceSettings.cs" />
+    <Compile Include="Models\Class1.cs" />
     <Compile Include="Models\Common\CommonEnums.cs" />
     <Compile Include="Models\Common\DocumentGridViewModel.cs" />
     <Compile Include="Models\PivotGrid\PivotGridSettingsBase.cs" />

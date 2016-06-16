@@ -35,9 +35,9 @@ namespace PandoraWeb.Helpers
                     exportOptions.AllowGrouping = optionsModel.DataAwareOptions.AllowGrouping ? DefaultBoolean.True : DefaultBoolean.False;
                     exportOptions.RawDataMode = optionsModel.DataAwareOptions.ExportRawData;
                     exportOptions.TextExportMode = optionsModel.DataAwareOptions.ExportDisplayText ? TextExportMode.Text : TextExportMode.Value;
-                    return exportTypes[format].ExcelMethod(model.PivotGridSettings, model.BindData, exportOptions);
+                    return exportTypes[format].ExcelMethod(model.PivotGridSettings, model.PivotGridData, exportOptions);
                 default:
-                    return exportTypes[format].Method(model.PivotGridSettings, model.BindData);
+                    return exportTypes[format].Method(model.PivotGridSettings, model.PivotGridData);
             }
         }
 

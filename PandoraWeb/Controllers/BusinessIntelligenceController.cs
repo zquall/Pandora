@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Web.Mvc;
 using Core;
 using DataObjects.Models.PivotGrid;
+using DevExpress.Web.Mvc;
 using PandoraWeb.Helpers;
+using PandoraWeb.Models;
 using PandoraWeb.Models.BusinessIntelligence;
 
 namespace PandoraWeb.Controllers
@@ -21,42 +23,42 @@ namespace PandoraWeb.Controllers
             var model = new BusinessIntelligenceModel();
 
             var lastMonthDate = DateTime.Today.AddMonths(-1);
-            var startDate = new DateTime(lastMonthDate.Year, lastMonthDate.Month, 1);
-            var endDate = startDate.AddMonths(1).AddDays(-1);
+            var dateStart = new DateTime(lastMonthDate.Year, lastMonthDate.Month, 1);
+            var dateEnd = dateStart.AddMonths(1).AddDays(-1);
 
-            model.PivotGridExportOptions.DateStart = startDate;
-            model.PivotGridExportOptions.DateEnd = endDate;
+            model.DateStart = dateStart;
+            model.DateEnd = dateEnd;
+
+
+            var service = new ReportSalesService();
+            Session["PivotGridData"] = service.GetSalesByEmployeeByDivision(dateStart, dateEnd);
+            Session["PivotGridSettings"] = BusinessIntelligenceSettings.SalesByEmployeeByDivisionSettings();
 
             return View(model);
         }
 
         [HttpPost]
-        public ActionResult SalesByEmployeeByDivision(PivotGridExportOptionsModel optionsModel)
+        public ActionResult SalesByEmployeeByDivision(BusinessIntelligenceModel model)
         {
-            var model = new BusinessIntelligenceModel();
-         
-
-            model.PivotGridSettings = BusinessIntelligenceSettings.SalesByEmployeeByDivisionSettings(model);
-            model.PivotGridExportOptions = optionsModel;
+            var service = new ReportSalesService();
+            Session["PivotGridData"] = service.GetSalesByEmployeeByDivision(model.DateStart, model.DateEnd);
 
             if (Request.Params["ExportTo"] == null)
             { 
                 return View(model);
             }
 
-            var service = new ReportSalesService();
-            model.BindData = service.GetSalesByEmployeeByDivision(optionsModel.DateStart, optionsModel.DateEnd);
-
-            return PivotGridDataExportHelper.ExportActionResult(optionsModel, model);
+            return PivotGridDataExportHelper.ExportActionResult(model.PivotGridExportOptions, model);
         }
 
-        public ActionResult SalesByEmployeeByDivisionPartial(BusinessIntelligenceModel model)
+        public ActionResult PivotGridPartial()
         {
-            var service = new ReportSalesService();
-            model.BindData = service.GetSalesByEmployeeByDivision(model.PivotGridExportOptions.DateStart, model.PivotGridExportOptions.DateEnd);
-            // model.BindData = new List<object>();
-            model.PivotGridSettings = BusinessIntelligenceSettings.SalesByEmployeeByDivisionSettings(model);
-
+            var model = new BusinessIntelligenceModel
+            {
+                PivotGridData = Session["PivotGridData"] as IEnumerable<object>,
+                PivotGridSettings = Session["PivotGridSettings"] as PivotGridSettings
+            };
+            
             return PartialView("_PivotGridPartial", model);
         }
     }

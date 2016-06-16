@@ -10,9 +10,6 @@ namespace DataObjects.Models.PivotGrid
 
     public class PivotGridExportOptionsModel
     {
-        public DateTime DateStart { get; set; }
-        public DateTime DateEnd { get; set; }
-
         public PivotGridExportOptionsModel()
         {
             ExportOptions = new PivotGridExportOptions();

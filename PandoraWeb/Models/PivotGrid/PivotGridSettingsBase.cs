@@ -1,4 +1,5 @@
-﻿using System.Web.UI.WebControls;
+﻿using System;
+using System.Web.UI.WebControls;
 using DevExpress.Web;
 using DevExpress.Web.ASPxPivotGrid;
 using DevExpress.Web.Mvc;
@@ -8,12 +9,10 @@ namespace PandoraWeb.Models.PivotGrid
 {
     public sealed class PivotGridSettingsBase : PivotGridSettings
     {
-        public PivotGridSettingsBase(string controller, string action, BusinessIntelligenceModel model)
+        public PivotGridSettingsBase(string controller, string action)
         {
             Name = "PandoraPivotGrid";
-            //CallbackRouteValues = new { Controller = "DataOutput", Action = "ExportPartial" };
-            CallbackRouteValues = new { Controller = controller, Action = action, DateStart = model.PivotGridExportOptions.DateStart, DateEnd = model.PivotGridExportOptions.DateEnd };
-            //CallbackRouteValues = new { Controller = "BusinessIntelligence", Action = "SalesByEmployeeByDivision" };
+            CallbackRouteValues = new { Controller = controller, Action = action };
 
             Width = Unit.Percentage(100);
             Height = Unit.Pixel(600);

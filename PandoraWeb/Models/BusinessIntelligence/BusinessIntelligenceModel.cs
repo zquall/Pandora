@@ -12,6 +12,9 @@ namespace PandoraWeb.Models.BusinessIntelligence
 {
     public class BusinessIntelligenceModel
     {
+        public DateTime DateStart { get; set; }
+        public DateTime DateEnd { get; set; }
+
         public BusinessIntelligenceModel()
         {
             PivotGridExportOptions = new PivotGridExportOptionsModel();
@@ -19,6 +22,6 @@ namespace PandoraWeb.Models.BusinessIntelligence
         }
         public PivotGridExportOptionsModel PivotGridExportOptions { get; set; }
         public PivotGridSettings PivotGridSettings { get; set; }
-        public IEnumerable<object> BindData { get; set; }
+        public IEnumerable<object> PivotGridData { get; set; }
     }
 }

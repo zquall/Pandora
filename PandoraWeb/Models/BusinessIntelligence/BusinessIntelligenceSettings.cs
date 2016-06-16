@@ -12,9 +12,9 @@ namespace PandoraWeb.Models.BusinessIntelligence
 {
     public static class BusinessIntelligenceSettings
     {
-        public static PivotGridSettings SalesByEmployeeByDivisionSettings(BusinessIntelligenceModel model)
+        public static PivotGridSettings SalesByEmployeeByDivisionSettings()
         {
-            PivotGridSettings settings = new PivotGridSettingsBase("BusinessIntelligence", "SalesByEmployeeByDivisionPartial", model);
+            PivotGridSettings settings = new PivotGridSettingsBase("BusinessIntelligence", "PivotGridPartial");
 
             settings.Fields.Add(field => {
                 field.Area = PivotArea.RowArea;
