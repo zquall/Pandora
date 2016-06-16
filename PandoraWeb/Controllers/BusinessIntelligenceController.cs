@@ -48,6 +48,9 @@ namespace PandoraWeb.Controllers
                 return View(model);
             }
 
+            model.PivotGridData = (IEnumerable<object>) Session["PivotGridData"];
+            model.PivotGridSettings = Session["PivotGridSettings"] as PivotGridSettings;
+           
             return PivotGridDataExportHelper.ExportActionResult(model.PivotGridExportOptions, model);
         }
 
