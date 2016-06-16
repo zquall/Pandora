@@ -112,7 +112,7 @@ namespace PandoraWeb.Models.BusinessIntelligence
                 field.CellFormat.FormatString = "$ #,##0.00";
             });
             settings.Fields.Add(field => {
-                field.Area = PivotArea.DataArea;
+                field.Area = PivotArea.FilterArea;
                 field.FieldName = "TaxDollar";
                 field.Caption = "Impuesto$";
                 field.CellFormat.FormatType = FormatType.Numeric;
@@ -133,7 +133,7 @@ namespace PandoraWeb.Models.BusinessIntelligence
                 field.CellFormat.FormatString = "$ #,##0.00";
             });
             settings.Fields.Add(field => {
-                field.Area = PivotArea.FilterArea;
+                field.Area = PivotArea.DataArea;
                 field.FieldName = "DiscountDollar";
                 field.Caption = "Descuento$";
                 field.CellFormat.FormatType = FormatType.Numeric;
