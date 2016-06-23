@@ -41,14 +41,9 @@ namespace Core.Automapper
                 .ForMember(dest => dest.SalesPersonCode, opts => opts.MapFrom(src => src.SellerCode))
                 .ForMember(dest => dest.HandWritten, opts => opts.ResolveUsing<AutomapperResolver.SapBooleanResolver>().FromMember(src => src.HandWritten))
                 .ForMember(dest => dest.ManualNumber, opts => opts.ResolveUsing<AutomapperResolver.SapBooleanResolver>().FromMember(src => src.ManualNumber))
-
+                .ForMember(dest => dest.DiscountPercent, opts => opts.MapFrom(src => src.DiscountPercent))
                 .ForMember(dest => dest.Comments, opts => opts.MapFrom(src => src.Comments))
-
-                 .ForMember(dest => dest.U_SCG_TipoDocumento, opts => opts.MapFrom(src => src.DocumentType));
-            
-
-
-            
+                .ForMember(dest => dest.U_SCG_TipoDocumento, opts => opts.MapFrom(src => src.DocumentType));
 
             Mapper.CreateMap<ItemDetail, BOMBORowLines>()
              .ForMember(dest => dest.TaxLiable, opts => opts.ResolveUsing<AutomapperResolver.SapBooleanResolver>().FromMember(src => src.TaxLiable));

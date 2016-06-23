@@ -112,7 +112,7 @@ namespace BusinessOneObjects.Request
         public double Price { get; set; }
         public string Currency { get; set; }
         public int WarehouseCode { get; set; }
-        public int DiscountPercent { get; set; }
+        public decimal DiscountPercent { get; set; }
     }
 }
 
