@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using DevExpress.XtraRichEdit.Fields;
+using PandoraWeb.Models;
 using PandoraWeb.Models.Common;
 
 namespace PandoraWeb.Controllers.Common
@@ -15,6 +16,13 @@ namespace PandoraWeb.Controllers.Common
         public ActionResult Index()
         {
             var model = new List<DocumentGridViewModel>();
+            var lista = new List<CustomerModel>
+            {
+                new CustomerModel {Id = "0", Name = "aaaaa"},
+                new CustomerModel {Id = "1", Name = "bbbbbb"},
+                new CustomerModel {Id = "3", Name = "ccccc"}
+            };
+            ViewData["Customers"] = lista;
             return View(model);
         }
 
@@ -80,5 +88,19 @@ namespace PandoraWeb.Controllers.Common
             }
             return PartialView("~/Views/Document/_DocumentGridViewPartial.cshtml", model);
         }
+
+        public ActionResult ComboBoxPartial()
+        {
+            var lista = new List<CustomerModel>
+            {
+                new CustomerModel {Id = "0", Name = "aaaaa"},
+                new CustomerModel {Id = "1", Name = "bbbbbb"},
+                new CustomerModel {Id = "3", Name = "ccccc"}
+            };
+            ViewData["Customers"] = lista;
+
+            return PartialView("~/Views/Document/_ComboBoxPartial.cshtml");
+        }
+
     }
 }

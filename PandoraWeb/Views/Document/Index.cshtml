@@ -15,14 +15,7 @@
 
                 <div class="form-group">
                     <label for="CustomerEdit">Nombre del cliente</label>
-                    @Html.DevExpress().ButtonEdit(settings =>
-                    {
-                        settings.Name = "CustomerEdit";
-                        //settings.ControlStyle.CssClass = "form-control";
-                        settings.Width = 310;
-                        settings.Properties.Buttons.Add(new EditButton());
-                        settings.Properties.ClientSideEvents.ButtonClick = "buttonEdit1_ButtonClick";
-                    }).GetHtml()
+                    @Html.Partial("_ComboBoxPartial")
 
                 </div>
 

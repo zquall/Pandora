@@ -162,7 +162,7 @@
     <Compile Include="Helpers\PivotGridDataExportHelper.cs" />
     <Compile Include="Models\BusinessIntelligence\BusinessIntelligenceModel.cs" />
     <Compile Include="Models\BusinessIntelligence\BusinessIntelligenceSettings.cs" />
-    <Compile Include="Models\Class1.cs" />
+    <Compile Include="Models\CustomerModel.cs" />
     <Compile Include="Models\Common\CommonEnums.cs" />
     <Compile Include="Models\Common\DocumentGridViewModel.cs" />
     <Compile Include="Models\PivotGrid\PivotGridSettingsBase.cs" />
@@ -191,6 +191,7 @@
     <Content Include="Views\BusinessIntelligence\BusinessIntelligenceLayout.cshtml" />
     <Content Include="Views\BusinessIntelligence\_PivotGridFilterPartial.cshtml" />
     <None Include="Properties\PublishProfiles\Pandora Deploy.pubxml" />
+    <Content Include="Views\Document\_ComboBoxPartial.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

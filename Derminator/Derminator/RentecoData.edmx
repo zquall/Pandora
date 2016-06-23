@@ -1,0 +1,679 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="RentecoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CXC_RECIBOS">
+          <Key>
+            <PropertyRef Name="CIA_Codigo" />
+            <PropertyRef Name="CXC_Recibo" />
+            <PropertyRef Name="CXC_Tipo" />
+          </Key>
+          <Property Name="CIA_Codigo" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="CXC_Recibo" Type="float" Nullable="false" />
+          <Property Name="CXC_Tipo" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="TAS_Codigo" Type="varchar" MaxLength="10" />
+          <Property Name="CXC_Fecha" Type="datetime" Nullable="false" />
+          <Property Name="CXC_Cheque" Type="varchar" MaxLength="60" />
+          <Property Name="CLI_Cliente" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="CXC_DescuentoColones" Type="float" Nullable="false" />
+          <Property Name="CXC_DescuentoDolares" Type="float" Nullable="false" />
+          <Property Name="CXC_MontoColones" Type="float" Nullable="false" />
+          <Property Name="CXC_MontoDolares" Type="float" Nullable="false" />
+          <Property Name="CXC_Estado" Type="varchar" MaxLength="1" />
+          <Property Name="CXC_Observaciones" Type="varchar" MaxLength="7000" />
+          <Property Name="VEN_Vendedor" Type="varchar" MaxLength="7" />
+          <Property Name="VEN_Comision" Type="float" Nullable="false" />
+          <Property Name="CXC_TipoCambio" Type="float" Nullable="false" />
+          <Property Name="CXC_Moneda" Type="varchar" MaxLength="1" />
+          <Property Name="CXC_Contabilizado" Type="smallint" Nullable="false" />
+          <Property Name="CXC_CierreFiscal" Type="smallint" Nullable="false" />
+          <Property Name="CXC_Pendiente" Type="smallint" Nullable="false" />
+          <Property Name="CXC_SaldoColones" Type="float" Nullable="false" />
+          <Property Name="CXC_SaldoDolares" Type="float" Nullable="false" />
+          <Property Name="CXC_Devolucion" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="TRA_Numero" Type="float" Nullable="false" />
+          <Property Name="timestamp" Type="timestamp" StoreGeneratedPattern="Computed" />
+          <Property Name="USR_Usuario_Modificacion" Type="varchar" MaxLength="20" />
+          <Property Name="USR_Fecha_Modificacion" Type="datetime" />
+          <Property Name="USR_Usuario_Inclusion" Type="varchar" MaxLength="20" />
+          <Property Name="USR_Fecha_Inclusion" Type="datetime" />
+          <Property Name="BNC_Banco" Type="varchar" MaxLength="2" />
+          <Property Name="MOV_Tipo" Type="varchar" MaxLength="1" />
+          <Property Name="Mov_Numero" Type="float" />
+          <Property Name="CXC_FuePendiente" Type="smallint" Nullable="false" />
+          <Property Name="CXC_Tipo_Dos" Type="varchar" MaxLength="1" />
+          <Property Name="MigradaSAP" Type="bit" />
+        </EntityType>
+        <EntityType Name="FAC_FACTURAS">
+          <Key>
+            <PropertyRef Name="CIA_Codigo" />
+            <PropertyRef Name="FAC_Numero" />
+          </Key>
+          <Property Name="CIA_Codigo" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="FAC_Numero" Type="float" Nullable="false" />
+          <Property Name="FAC_Tipo" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="CON_Numero" Type="float" />
+          <Property Name="SAL_Numero" Type="float" />
+          <Property Name="PRO_Numero" Type="varchar" MaxLength="10" />
+          <Property Name="FAC_EsDeCredito" Type="smallint" Nullable="false" />
+          <Property Name="FAC_Fecha" Type="datetime" Nullable="false" />
+          <Property Name="FAC_FechaVencimiento" Type="datetime" />
+          <Property Name="FAC_Orden_Compra" Type="varchar" MaxLength="60" />
+          <Property Name="FAC_FormaPago" Type="varchar" MaxLength="2" />
+          <Property Name="FAC_Documento" Type="varchar" MaxLength="10" />
+          <Property Name="TRA_Numero" Type="float" Nullable="false" />
+          <Property Name="DEV_Numero" Type="varchar" MaxLength="10" />
+          <Property Name="BOD_Bodega" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="CLI_Cliente" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="CLI_Nombre" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="VEN_Vendedor" Type="varchar" MaxLength="7" Nullable="false" />
+          <Property Name="VEN_Comision" Type="float" Nullable="false" />
+          <Property Name="PRO_Proyecto" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="FAC_Costo" Type="float" Nullable="false" />
+          <Property Name="FAC_Observacion" Type="varchar" MaxLength="600" />
+          <Property Name="FAC_Gravadas" Type="money" Nullable="false" />
+          <Property Name="FAC_Exentas" Type="money" Nullable="false" />
+          <Property Name="FAC_SubTotal" Type="money" Nullable="false" />
+          <Property Name="FAC_Porcentaje_Descuento" Type="money" Nullable="false" />
+          <Property Name="FAC_Descuento" Type="money" Nullable="false" />
+          <Property Name="FAC_Impuesto" Type="money" />
+          <Property Name="FAC_Total" Type="money" Nullable="false" />
+          <Property Name="FAC_Saldo" Type="money" Nullable="false" />
+          <Property Name="FAC_Estado" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="FAC_Transporte" Type="float" Nullable="false" />
+          <Property Name="FAC_TipoCambio" Type="float" Nullable="false" />
+          <Property Name="FAC_Moneda" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="FAC_Contabilizado" Type="smallint" Nullable="false" />
+          <Property Name="FAC_Refactura" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="FAC_CierreFiscal" Type="smallint" Nullable="false" />
+          <Property Name="FAC_facturaAnterior" Type="float" />
+          <Property Name="FAC_MontoNC" Type="float" />
+          <Property Name="FAC_Descuento_ProntoPago" Type="float" Nullable="false" />
+          <Property Name="FAC_Costo_Colon" Type="float" Nullable="false" />
+          <Property Name="timestamp" Type="timestamp" StoreGeneratedPattern="Computed" />
+          <Property Name="USR_Usuario_Modificacion" Type="varchar" MaxLength="20" />
+          <Property Name="USR_Fecha_Modificacion" Type="datetime" />
+          <Property Name="USR_Usuario_Inclusion" Type="varchar" MaxLength="20" />
+          <Property Name="USR_Fecha_Inclusion" Type="datetime" />
+          <Property Name="BNC_Banco" Type="varchar" MaxLength="2" />
+          <Property Name="MOV_Tipo" Type="varchar" MaxLength="1" />
+          <Property Name="Mov_Numero" Type="float" />
+          <Property Name="FAC_HORA" Type="varchar" MaxLength="16" />
+          <Property Name="NumberOfImpressions" Type="int" />
+          <Property Name="MigradaSAP" Type="int" />
+          <Property Name="IsFirstInvoice" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'RENTECO.dbo.SAP_CreditNoteDetail' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="SAP_CreditNoteDetail">
+          <Key>
+            <PropertyRef Name="RecordKey" />
+            <PropertyRef Name="AccountCode" />
+            <PropertyRef Name="ItemDescription" />
+            <PropertyRef Name="Currency" />
+            <PropertyRef Name="TaxCode" />
+            <PropertyRef Name="DiscountPercent" />
+          </Key>
+          <Property Name="RecordKey" Type="float" Nullable="false" />
+          <Property Name="AccountCode" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="ItemDescription" Type="varchar" MaxLength="27" Nullable="false" />
+          <Property Name="Currency" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="LineTotal" Type="float" />
+          <Property Name="TaxCode" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="DiscountPercent" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'RENTECO.dbo.SAP_CreditNoteMaster' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="SAP_CreditNoteMaster">
+          <Key>
+            <PropertyRef Name="DocNum" />
+            <PropertyRef Name="CardCode" />
+            <PropertyRef Name="DocCurrency" />
+            <PropertyRef Name="DocDate" />
+            <PropertyRef Name="TaxDate" />
+            <PropertyRef Name="DocDueDate" />
+            <PropertyRef Name="NumAtCard" />
+            <PropertyRef Name="DocType" />
+            <PropertyRef Name="HandWritten" />
+            <PropertyRef Name="ManualNumber" />
+            <PropertyRef Name="DiscountPercent" />
+            <PropertyRef Name="TipoDocumento" />
+            <PropertyRef Name="Comments" />
+          </Key>
+          <Property Name="DocNum" Type="float" Nullable="false" />
+          <Property Name="CardCode" Type="varchar" MaxLength="7" Nullable="false" />
+          <Property Name="DocCurrency" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="DocDate" Type="datetime" Nullable="false" />
+          <Property Name="TaxDate" Type="datetime" Nullable="false" />
+          <Property Name="DocDueDate" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="NumAtCard" Type="float" Nullable="false" />
+          <Property Name="DocType" Type="varchar" MaxLength="17" Nullable="false" />
+          <Property Name="HandWritten" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="ManualNumber" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="Comments" Type="varchar" MaxLength="253" Nullable="false" />
+          <Property Name="DiscountPercent" Type="int" Nullable="false" />
+          <Property Name="SlpCode" Type="smallint" />
+          <Property Name="TipoDocumento" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'RENTECO.dbo.SAP_LoadInvoiceDetail' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="SAP_LoadInvoiceDetail">
+          <Key>
+            <PropertyRef Name="RecordKey" />
+            <PropertyRef Name="AccountCode" />
+            <PropertyRef Name="ItemDescription" />
+            <PropertyRef Name="Currency" />
+            <PropertyRef Name="TaxCode" />
+            <PropertyRef Name="DiscountPercent" />
+          </Key>
+          <Property Name="RecordKey" Type="float" Nullable="false" />
+          <Property Name="AccountCode" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="ItemDescription" Type="varchar" MaxLength="41" Nullable="false" />
+          <Property Name="Currency" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="LineTotal" Type="float" />
+          <Property Name="TaxCode" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="DiscountPercent" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'RENTECO.dbo.SAP_LoadInvoiceMaster' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="SAP_LoadInvoiceMaster">
+          <Key>
+            <PropertyRef Name="DocNum" />
+            <PropertyRef Name="CardCode" />
+            <PropertyRef Name="DocCurrency" />
+            <PropertyRef Name="DocDate" />
+            <PropertyRef Name="TaxDate" />
+            <PropertyRef Name="NumAtCard" />
+            <PropertyRef Name="DocType" />
+            <PropertyRef Name="HandWritten" />
+            <PropertyRef Name="ManualNumber" />
+            <PropertyRef Name="DiscountPercent" />
+            <PropertyRef Name="U_SCG_TipoDocumento" />
+          </Key>
+          <Property Name="DocNum" Type="float" Nullable="false" />
+          <Property Name="CardCode" Type="varchar" MaxLength="7" Nullable="false" />
+          <Property Name="DocCurrency" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="DocDate" Type="datetime" Nullable="false" />
+          <Property Name="TaxDate" Type="datetime" Nullable="false" />
+          <Property Name="DocDueDate" Type="datetime" />
+          <Property Name="NumAtCard" Type="float" Nullable="false" />
+          <Property Name="DocType" Type="varchar" MaxLength="17" Nullable="false" />
+          <Property Name="HandWritten" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="ManualNumber" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="Comments" Type="varchar" MaxLength="253" />
+          <Property Name="DiscountPercent" Type="money" Nullable="false" />
+          <Property Name="SalesPersonCode" Type="smallint" />
+          <Property Name="U_SCG_TipoDocumento" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Project" Type="nchar" MaxLength="20" />
+        </EntityType>
+        <EntityContainer Name="RentecoModelStoreContainer">
+          <EntitySet Name="CXC_RECIBOS" EntityType="Self.CXC_RECIBOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FAC_FACTURAS" EntityType="Self.FAC_FACTURAS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SAP_CreditNoteDetail" EntityType="Self.SAP_CreditNoteDetail" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[SAP_CreditNoteDetail].[RecordKey] AS [RecordKey], 
+[SAP_CreditNoteDetail].[AccountCode] AS [AccountCode], 
+[SAP_CreditNoteDetail].[ItemDescription] AS [ItemDescription], 
+[SAP_CreditNoteDetail].[Currency] AS [Currency], 
+[SAP_CreditNoteDetail].[LineTotal] AS [LineTotal], 
+[SAP_CreditNoteDetail].[TaxCode] AS [TaxCode], 
+[SAP_CreditNoteDetail].[DiscountPercent] AS [DiscountPercent]
+FROM [dbo].[SAP_CreditNoteDetail] AS [SAP_CreditNoteDetail]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="SAP_CreditNoteMaster" EntityType="Self.SAP_CreditNoteMaster" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[SAP_CreditNoteMaster].[DocNum] AS [DocNum], 
+[SAP_CreditNoteMaster].[CardCode] AS [CardCode], 
+[SAP_CreditNoteMaster].[DocCurrency] AS [DocCurrency], 
+[SAP_CreditNoteMaster].[DocDate] AS [DocDate], 
+[SAP_CreditNoteMaster].[TaxDate] AS [TaxDate], 
+[SAP_CreditNoteMaster].[DocDueDate] AS [DocDueDate], 
+[SAP_CreditNoteMaster].[NumAtCard] AS [NumAtCard], 
+[SAP_CreditNoteMaster].[DocType] AS [DocType], 
+[SAP_CreditNoteMaster].[HandWritten] AS [HandWritten], 
+[SAP_CreditNoteMaster].[ManualNumber] AS [ManualNumber], 
+[SAP_CreditNoteMaster].[Comments] AS [Comments], 
+[SAP_CreditNoteMaster].[DiscountPercent] AS [DiscountPercent], 
+[SAP_CreditNoteMaster].[SlpCode] AS [SlpCode], 
+[SAP_CreditNoteMaster].[TipoDocumento] AS [TipoDocumento]
+FROM [dbo].[SAP_CreditNoteMaster] AS [SAP_CreditNoteMaster]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="SAP_LoadInvoiceDetail" EntityType="Self.SAP_LoadInvoiceDetail" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[SAP_LoadInvoiceDetail].[RecordKey] AS [RecordKey], 
+[SAP_LoadInvoiceDetail].[AccountCode] AS [AccountCode], 
+[SAP_LoadInvoiceDetail].[ItemDescription] AS [ItemDescription], 
+[SAP_LoadInvoiceDetail].[Currency] AS [Currency], 
+[SAP_LoadInvoiceDetail].[LineTotal] AS [LineTotal], 
+[SAP_LoadInvoiceDetail].[TaxCode] AS [TaxCode], 
+[SAP_LoadInvoiceDetail].[DiscountPercent] AS [DiscountPercent]
+FROM [dbo].[SAP_LoadInvoiceDetail] AS [SAP_LoadInvoiceDetail]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="SAP_LoadInvoiceMaster" EntityType="Self.SAP_LoadInvoiceMaster" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[SAP_LoadInvoiceMaster].[DocNum] AS [DocNum], 
+[SAP_LoadInvoiceMaster].[CardCode] AS [CardCode], 
+[SAP_LoadInvoiceMaster].[DocCurrency] AS [DocCurrency], 
+[SAP_LoadInvoiceMaster].[DocDate] AS [DocDate], 
+[SAP_LoadInvoiceMaster].[TaxDate] AS [TaxDate], 
+[SAP_LoadInvoiceMaster].[DocDueDate] AS [DocDueDate], 
+[SAP_LoadInvoiceMaster].[NumAtCard] AS [NumAtCard], 
+[SAP_LoadInvoiceMaster].[DocType] AS [DocType], 
+[SAP_LoadInvoiceMaster].[HandWritten] AS [HandWritten], 
+[SAP_LoadInvoiceMaster].[ManualNumber] AS [ManualNumber], 
+[SAP_LoadInvoiceMaster].[Comments] AS [Comments], 
+[SAP_LoadInvoiceMaster].[DiscountPercent] AS [DiscountPercent], 
+[SAP_LoadInvoiceMaster].[SalesPersonCode] AS [SalesPersonCode], 
+[SAP_LoadInvoiceMaster].[U_SCG_TipoDocumento] AS [U_SCG_TipoDocumento], 
+[SAP_LoadInvoiceMaster].[Project] AS [Project]
+FROM [dbo].[SAP_LoadInvoiceMaster] AS [SAP_LoadInvoiceMaster]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RentecoModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="RentecoEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="FAC_FACTURAS" EntityType="RentecoModel.FAC_FACTURAS" />
+          <EntitySet Name="SAP_LoadInvoiceDetail" EntityType="RentecoModel.SAP_LoadInvoiceDetail" />
+          <EntitySet Name="SAP_CreditNoteDetail" EntityType="RentecoModel.SAP_CreditNoteDetail" />
+          <EntitySet Name="SAP_CreditNoteMaster" EntityType="RentecoModel.SAP_CreditNoteMaster" />
+          <EntitySet Name="CXC_RECIBOS" EntityType="RentecoModel.CXC_RECIBOS" />
+          <EntitySet Name="SAP_LoadInvoiceMaster" EntityType="RentecoModel.SAP_LoadInvoiceMaster" />
+        </EntityContainer>
+        <EntityType Name="FAC_FACTURAS">
+          <Key>
+            <PropertyRef Name="CIA_Codigo" />
+            <PropertyRef Name="FAC_Numero" />
+          </Key>
+          <Property Type="String" Name="CIA_Codigo" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="FAC_Numero" Nullable="false" />
+          <Property Type="String" Name="FAC_Tipo" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="Double" Name="CON_Numero" />
+          <Property Type="Double" Name="SAL_Numero" />
+          <Property Type="String" Name="PRO_Numero" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="Int16" Name="FAC_EsDeCredito" Nullable="false" />
+          <Property Type="DateTime" Name="FAC_Fecha" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="FAC_FechaVencimiento" Precision="3" />
+          <Property Type="String" Name="FAC_Orden_Compra" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="FAC_FormaPago" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="FAC_Documento" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="TRA_Numero" Nullable="false" />
+          <Property Type="String" Name="DEV_Numero" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="BOD_Bodega" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CLI_Cliente" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CLI_Nombre" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="VEN_Vendedor" Nullable="false" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="VEN_Comision" Nullable="false" />
+          <Property Type="String" Name="PRO_Proyecto" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="FAC_Costo" Nullable="false" />
+          <Property Type="String" Name="FAC_Observacion" MaxLength="600" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="FAC_Gravadas" Nullable="false" Precision="19" Scale="4" />
+          <Property Type="Decimal" Name="FAC_Exentas" Nullable="false" Precision="19" Scale="4" />
+          <Property Type="Decimal" Name="FAC_SubTotal" Nullable="false" Precision="19" Scale="4" />
+          <Property Type="Decimal" Name="FAC_Porcentaje_Descuento" Nullable="false" Precision="19" Scale="4" />
+          <Property Type="Decimal" Name="FAC_Descuento" Nullable="false" Precision="19" Scale="4" />
+          <Property Type="Decimal" Name="FAC_Impuesto" Precision="19" Scale="4" />
+          <Property Type="Decimal" Name="FAC_Total" Nullable="false" Precision="19" Scale="4" />
+          <Property Type="Decimal" Name="FAC_Saldo" Nullable="false" Precision="19" Scale="4" />
+          <Property Type="String" Name="FAC_Estado" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="FAC_Transporte" Nullable="false" />
+          <Property Type="Double" Name="FAC_TipoCambio" Nullable="false" />
+          <Property Type="String" Name="FAC_Moneda" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Type="Int16" Name="FAC_Contabilizado" Nullable="false" />
+          <Property Type="String" Name="FAC_Refactura" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="Int16" Name="FAC_CierreFiscal" Nullable="false" />
+          <Property Type="Double" Name="FAC_facturaAnterior" />
+          <Property Type="Double" Name="FAC_MontoNC" />
+          <Property Type="Double" Name="FAC_Descuento_ProntoPago" Nullable="false" />
+          <Property Type="Double" Name="FAC_Costo_Colon" Nullable="false" />
+          <Property Type="Binary" Name="timestamp" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Type="String" Name="USR_Usuario_Modificacion" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="USR_Fecha_Modificacion" Precision="3" />
+          <Property Type="String" Name="USR_Usuario_Inclusion" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="USR_Fecha_Inclusion" Precision="3" />
+          <Property Type="String" Name="BNC_Banco" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="MOV_Tipo" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="Mov_Numero" />
+          <Property Type="String" Name="FAC_HORA" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="NumberOfImpressions" />
+          <Property Type="Int32" Name="MigradaSAP" />
+          <Property Name="IsFirstInvoice" Type="Byte" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SAP_LoadInvoiceDetail">
+          <Key>
+            <PropertyRef Name="RecordKey" />
+            <PropertyRef Name="AccountCode" />
+            <PropertyRef Name="ItemDescription" />
+            <PropertyRef Name="Currency" />
+            <PropertyRef Name="TaxCode" />
+            <PropertyRef Name="DiscountPercent" />
+          </Key>
+          <Property Name="RecordKey" Type="Double" Nullable="false" />
+          <Property Name="AccountCode" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="ItemDescription" Type="String" Nullable="false" MaxLength="41" FixedLength="false" Unicode="false" />
+          <Property Name="Currency" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="LineTotal" Type="Double" />
+          <Property Name="TaxCode" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="DiscountPercent" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SAP_CreditNoteDetail">
+          <Key>
+            <PropertyRef Name="RecordKey" />
+            <PropertyRef Name="AccountCode" />
+            <PropertyRef Name="ItemDescription" />
+            <PropertyRef Name="Currency" />
+            <PropertyRef Name="TaxCode" />
+            <PropertyRef Name="DiscountPercent" />
+          </Key>
+          <Property Name="RecordKey" Type="Double" Nullable="false" />
+          <Property Name="AccountCode" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="ItemDescription" Type="String" Nullable="false" MaxLength="27" FixedLength="false" Unicode="false" />
+          <Property Name="Currency" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="LineTotal" Type="Double" />
+          <Property Name="TaxCode" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="DiscountPercent" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SAP_CreditNoteMaster">
+          <Key>
+            <PropertyRef Name="DocNum" />
+            <PropertyRef Name="CardCode" />
+            <PropertyRef Name="DocCurrency" />
+            <PropertyRef Name="DocDate" />
+            <PropertyRef Name="TaxDate" />
+            <PropertyRef Name="DocDueDate" />
+            <PropertyRef Name="NumAtCard" />
+            <PropertyRef Name="DocType" />
+            <PropertyRef Name="HandWritten" />
+            <PropertyRef Name="ManualNumber" />
+            <PropertyRef Name="Comments" />
+            <PropertyRef Name="DiscountPercent" />
+            <PropertyRef Name="TipoDocumento" />
+          </Key>
+          <Property Name="DocNum" Type="Double" Nullable="false" />
+          <Property Name="CardCode" Type="String" Nullable="false" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="DocCurrency" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="DocDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="TaxDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DocDueDate" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="NumAtCard" Type="Double" Nullable="false" />
+          <Property Name="DocType" Type="String" Nullable="false" MaxLength="17" FixedLength="false" Unicode="false" />
+          <Property Name="HandWritten" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="ManualNumber" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="Comments" Type="String" Nullable="false" MaxLength="253" FixedLength="false" Unicode="false" />
+          <Property Name="DiscountPercent" Type="Int32" Nullable="false" />
+          <Property Name="SlpCode" Type="Int16" />
+          <Property Name="TipoDocumento" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="CXC_RECIBOS">
+          <Key>
+            <PropertyRef Name="CIA_Codigo" />
+            <PropertyRef Name="CXC_Recibo" />
+            <PropertyRef Name="CXC_Tipo" />
+          </Key>
+          <Property Name="CIA_Codigo" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="CXC_Recibo" Type="Double" Nullable="false" />
+          <Property Name="CXC_Tipo" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="TAS_Codigo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CXC_Fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CXC_Cheque" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="CLI_Cliente" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CXC_DescuentoColones" Type="Double" Nullable="false" />
+          <Property Name="CXC_DescuentoDolares" Type="Double" Nullable="false" />
+          <Property Name="CXC_MontoColones" Type="Double" Nullable="false" />
+          <Property Name="CXC_MontoDolares" Type="Double" Nullable="false" />
+          <Property Name="CXC_Estado" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="CXC_Observaciones" Type="String" MaxLength="7000" FixedLength="false" Unicode="false" />
+          <Property Name="VEN_Vendedor" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="VEN_Comision" Type="Double" Nullable="false" />
+          <Property Name="CXC_TipoCambio" Type="Double" Nullable="false" />
+          <Property Name="CXC_Moneda" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="CXC_Contabilizado" Type="Int16" Nullable="false" />
+          <Property Name="CXC_CierreFiscal" Type="Int16" Nullable="false" />
+          <Property Name="CXC_Pendiente" Type="Int16" Nullable="false" />
+          <Property Name="CXC_SaldoColones" Type="Double" Nullable="false" />
+          <Property Name="CXC_SaldoDolares" Type="Double" Nullable="false" />
+          <Property Name="CXC_Devolucion" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="TRA_Numero" Type="Double" Nullable="false" />
+          <Property Name="timestamp" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="USR_Usuario_Modificacion" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="USR_Fecha_Modificacion" Type="DateTime" Precision="3" />
+          <Property Name="USR_Usuario_Inclusion" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="USR_Fecha_Inclusion" Type="DateTime" Precision="3" />
+          <Property Name="BNC_Banco" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="MOV_Tipo" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Mov_Numero" Type="Double" />
+          <Property Name="CXC_FuePendiente" Type="Int16" Nullable="false" />
+          <Property Name="CXC_Tipo_Dos" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="MigradaSAP" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="SAP_LoadInvoiceMaster">
+          <Key>
+            <PropertyRef Name="DocNum" />
+            <PropertyRef Name="CardCode" />
+            <PropertyRef Name="DocCurrency" />
+            <PropertyRef Name="DocDate" />
+            <PropertyRef Name="TaxDate" />
+            <PropertyRef Name="NumAtCard" />
+            <PropertyRef Name="DocType" />
+            <PropertyRef Name="HandWritten" />
+            <PropertyRef Name="ManualNumber" />
+            <PropertyRef Name="DiscountPercent" />
+            <PropertyRef Name="U_SCG_TipoDocumento" />
+          </Key>
+          <Property Name="DocNum" Type="Double" Nullable="false" />
+          <Property Name="CardCode" Type="String" Nullable="false" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="DocCurrency" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="DocDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="TaxDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DocDueDate" Type="DateTime" Precision="3" />
+          <Property Name="NumAtCard" Type="Double" Nullable="false" />
+          <Property Name="DocType" Type="String" Nullable="false" MaxLength="17" FixedLength="false" Unicode="false" />
+          <Property Name="HandWritten" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="ManualNumber" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="Comments" Type="String" MaxLength="253" FixedLength="false" Unicode="false" />
+          <Property Name="DiscountPercent" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="SalesPersonCode" Type="Int16" />
+          <Property Name="U_SCG_TipoDocumento" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Project" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RentecoModelStoreContainer" CdmEntityContainer="RentecoEntities">
+          <EntitySetMapping Name="FAC_FACTURAS">
+            <EntityTypeMapping TypeName="RentecoModel.FAC_FACTURAS">
+              <MappingFragment StoreEntitySet="FAC_FACTURAS">
+                <ScalarProperty Name="IsFirstInvoice" ColumnName="IsFirstInvoice" />
+                <ScalarProperty Name="MigradaSAP" ColumnName="MigradaSAP" />
+                <ScalarProperty Name="NumberOfImpressions" ColumnName="NumberOfImpressions" />
+                <ScalarProperty Name="FAC_HORA" ColumnName="FAC_HORA" />
+                <ScalarProperty Name="Mov_Numero" ColumnName="Mov_Numero" />
+                <ScalarProperty Name="MOV_Tipo" ColumnName="MOV_Tipo" />
+                <ScalarProperty Name="BNC_Banco" ColumnName="BNC_Banco" />
+                <ScalarProperty Name="USR_Fecha_Inclusion" ColumnName="USR_Fecha_Inclusion" />
+                <ScalarProperty Name="USR_Usuario_Inclusion" ColumnName="USR_Usuario_Inclusion" />
+                <ScalarProperty Name="USR_Fecha_Modificacion" ColumnName="USR_Fecha_Modificacion" />
+                <ScalarProperty Name="USR_Usuario_Modificacion" ColumnName="USR_Usuario_Modificacion" />
+                <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+                <ScalarProperty Name="FAC_Costo_Colon" ColumnName="FAC_Costo_Colon" />
+                <ScalarProperty Name="FAC_Descuento_ProntoPago" ColumnName="FAC_Descuento_ProntoPago" />
+                <ScalarProperty Name="FAC_MontoNC" ColumnName="FAC_MontoNC" />
+                <ScalarProperty Name="FAC_facturaAnterior" ColumnName="FAC_facturaAnterior" />
+                <ScalarProperty Name="FAC_CierreFiscal" ColumnName="FAC_CierreFiscal" />
+                <ScalarProperty Name="FAC_Refactura" ColumnName="FAC_Refactura" />
+                <ScalarProperty Name="FAC_Contabilizado" ColumnName="FAC_Contabilizado" />
+                <ScalarProperty Name="FAC_Moneda" ColumnName="FAC_Moneda" />
+                <ScalarProperty Name="FAC_TipoCambio" ColumnName="FAC_TipoCambio" />
+                <ScalarProperty Name="FAC_Transporte" ColumnName="FAC_Transporte" />
+                <ScalarProperty Name="FAC_Estado" ColumnName="FAC_Estado" />
+                <ScalarProperty Name="FAC_Saldo" ColumnName="FAC_Saldo" />
+                <ScalarProperty Name="FAC_Total" ColumnName="FAC_Total" />
+                <ScalarProperty Name="FAC_Impuesto" ColumnName="FAC_Impuesto" />
+                <ScalarProperty Name="FAC_Descuento" ColumnName="FAC_Descuento" />
+                <ScalarProperty Name="FAC_Porcentaje_Descuento" ColumnName="FAC_Porcentaje_Descuento" />
+                <ScalarProperty Name="FAC_SubTotal" ColumnName="FAC_SubTotal" />
+                <ScalarProperty Name="FAC_Exentas" ColumnName="FAC_Exentas" />
+                <ScalarProperty Name="FAC_Gravadas" ColumnName="FAC_Gravadas" />
+                <ScalarProperty Name="FAC_Observacion" ColumnName="FAC_Observacion" />
+                <ScalarProperty Name="FAC_Costo" ColumnName="FAC_Costo" />
+                <ScalarProperty Name="PRO_Proyecto" ColumnName="PRO_Proyecto" />
+                <ScalarProperty Name="VEN_Comision" ColumnName="VEN_Comision" />
+                <ScalarProperty Name="VEN_Vendedor" ColumnName="VEN_Vendedor" />
+                <ScalarProperty Name="CLI_Nombre" ColumnName="CLI_Nombre" />
+                <ScalarProperty Name="CLI_Cliente" ColumnName="CLI_Cliente" />
+                <ScalarProperty Name="BOD_Bodega" ColumnName="BOD_Bodega" />
+                <ScalarProperty Name="DEV_Numero" ColumnName="DEV_Numero" />
+                <ScalarProperty Name="TRA_Numero" ColumnName="TRA_Numero" />
+                <ScalarProperty Name="FAC_Documento" ColumnName="FAC_Documento" />
+                <ScalarProperty Name="FAC_FormaPago" ColumnName="FAC_FormaPago" />
+                <ScalarProperty Name="FAC_Orden_Compra" ColumnName="FAC_Orden_Compra" />
+                <ScalarProperty Name="FAC_FechaVencimiento" ColumnName="FAC_FechaVencimiento" />
+                <ScalarProperty Name="FAC_Fecha" ColumnName="FAC_Fecha" />
+                <ScalarProperty Name="FAC_EsDeCredito" ColumnName="FAC_EsDeCredito" />
+                <ScalarProperty Name="PRO_Numero" ColumnName="PRO_Numero" />
+                <ScalarProperty Name="SAL_Numero" ColumnName="SAL_Numero" />
+                <ScalarProperty Name="CON_Numero" ColumnName="CON_Numero" />
+                <ScalarProperty Name="FAC_Tipo" ColumnName="FAC_Tipo" />
+                <ScalarProperty Name="FAC_Numero" ColumnName="FAC_Numero" />
+                <ScalarProperty Name="CIA_Codigo" ColumnName="CIA_Codigo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SAP_LoadInvoiceDetail">
+            <EntityTypeMapping TypeName="RentecoModel.SAP_LoadInvoiceDetail">
+              <MappingFragment StoreEntitySet="SAP_LoadInvoiceDetail">
+                <ScalarProperty Name="DiscountPercent" ColumnName="DiscountPercent" />
+                <ScalarProperty Name="TaxCode" ColumnName="TaxCode" />
+                <ScalarProperty Name="LineTotal" ColumnName="LineTotal" />
+                <ScalarProperty Name="Currency" ColumnName="Currency" />
+                <ScalarProperty Name="ItemDescription" ColumnName="ItemDescription" />
+                <ScalarProperty Name="AccountCode" ColumnName="AccountCode" />
+                <ScalarProperty Name="RecordKey" ColumnName="RecordKey" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SAP_CreditNoteDetail">
+            <EntityTypeMapping TypeName="RentecoModel.SAP_CreditNoteDetail">
+              <MappingFragment StoreEntitySet="SAP_CreditNoteDetail">
+                <ScalarProperty Name="DiscountPercent" ColumnName="DiscountPercent" />
+                <ScalarProperty Name="TaxCode" ColumnName="TaxCode" />
+                <ScalarProperty Name="LineTotal" ColumnName="LineTotal" />
+                <ScalarProperty Name="Currency" ColumnName="Currency" />
+                <ScalarProperty Name="ItemDescription" ColumnName="ItemDescription" />
+                <ScalarProperty Name="AccountCode" ColumnName="AccountCode" />
+                <ScalarProperty Name="RecordKey" ColumnName="RecordKey" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SAP_CreditNoteMaster">
+            <EntityTypeMapping TypeName="RentecoModel.SAP_CreditNoteMaster">
+              <MappingFragment StoreEntitySet="SAP_CreditNoteMaster">
+                <ScalarProperty Name="TipoDocumento" ColumnName="TipoDocumento" />
+                <ScalarProperty Name="SlpCode" ColumnName="SlpCode" />
+                <ScalarProperty Name="DiscountPercent" ColumnName="DiscountPercent" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="ManualNumber" ColumnName="ManualNumber" />
+                <ScalarProperty Name="HandWritten" ColumnName="HandWritten" />
+                <ScalarProperty Name="DocType" ColumnName="DocType" />
+                <ScalarProperty Name="NumAtCard" ColumnName="NumAtCard" />
+                <ScalarProperty Name="DocDueDate" ColumnName="DocDueDate" />
+                <ScalarProperty Name="TaxDate" ColumnName="TaxDate" />
+                <ScalarProperty Name="DocDate" ColumnName="DocDate" />
+                <ScalarProperty Name="DocCurrency" ColumnName="DocCurrency" />
+                <ScalarProperty Name="CardCode" ColumnName="CardCode" />
+                <ScalarProperty Name="DocNum" ColumnName="DocNum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CXC_RECIBOS">
+            <EntityTypeMapping TypeName="RentecoModel.CXC_RECIBOS">
+              <MappingFragment StoreEntitySet="CXC_RECIBOS">
+                <ScalarProperty Name="MigradaSAP" ColumnName="MigradaSAP" />
+                <ScalarProperty Name="CXC_Tipo_Dos" ColumnName="CXC_Tipo_Dos" />
+                <ScalarProperty Name="CXC_FuePendiente" ColumnName="CXC_FuePendiente" />
+                <ScalarProperty Name="Mov_Numero" ColumnName="Mov_Numero" />
+                <ScalarProperty Name="MOV_Tipo" ColumnName="MOV_Tipo" />
+                <ScalarProperty Name="BNC_Banco" ColumnName="BNC_Banco" />
+                <ScalarProperty Name="USR_Fecha_Inclusion" ColumnName="USR_Fecha_Inclusion" />
+                <ScalarProperty Name="USR_Usuario_Inclusion" ColumnName="USR_Usuario_Inclusion" />
+                <ScalarProperty Name="USR_Fecha_Modificacion" ColumnName="USR_Fecha_Modificacion" />
+                <ScalarProperty Name="USR_Usuario_Modificacion" ColumnName="USR_Usuario_Modificacion" />
+                <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+                <ScalarProperty Name="TRA_Numero" ColumnName="TRA_Numero" />
+                <ScalarProperty Name="CXC_Devolucion" ColumnName="CXC_Devolucion" />
+                <ScalarProperty Name="CXC_SaldoDolares" ColumnName="CXC_SaldoDolares" />
+                <ScalarProperty Name="CXC_SaldoColones" ColumnName="CXC_SaldoColones" />
+                <ScalarProperty Name="CXC_Pendiente" ColumnName="CXC_Pendiente" />
+                <ScalarProperty Name="CXC_CierreFiscal" ColumnName="CXC_CierreFiscal" />
+                <ScalarProperty Name="CXC_Contabilizado" ColumnName="CXC_Contabilizado" />
+                <ScalarProperty Name="CXC_Moneda" ColumnName="CXC_Moneda" />
+                <ScalarProperty Name="CXC_TipoCambio" ColumnName="CXC_TipoCambio" />
+                <ScalarProperty Name="VEN_Comision" ColumnName="VEN_Comision" />
+                <ScalarProperty Name="VEN_Vendedor" ColumnName="VEN_Vendedor" />
+                <ScalarProperty Name="CXC_Observaciones" ColumnName="CXC_Observaciones" />
+                <ScalarProperty Name="CXC_Estado" ColumnName="CXC_Estado" />
+                <ScalarProperty Name="CXC_MontoDolares" ColumnName="CXC_MontoDolares" />
+                <ScalarProperty Name="CXC_MontoColones" ColumnName="CXC_MontoColones" />
+                <ScalarProperty Name="CXC_DescuentoDolares" ColumnName="CXC_DescuentoDolares" />
+                <ScalarProperty Name="CXC_DescuentoColones" ColumnName="CXC_DescuentoColones" />
+                <ScalarProperty Name="CLI_Cliente" ColumnName="CLI_Cliente" />
+                <ScalarProperty Name="CXC_Cheque" ColumnName="CXC_Cheque" />
+                <ScalarProperty Name="CXC_Fecha" ColumnName="CXC_Fecha" />
+                <ScalarProperty Name="TAS_Codigo" ColumnName="TAS_Codigo" />
+                <ScalarProperty Name="CXC_Tipo" ColumnName="CXC_Tipo" />
+                <ScalarProperty Name="CXC_Recibo" ColumnName="CXC_Recibo" />
+                <ScalarProperty Name="CIA_Codigo" ColumnName="CIA_Codigo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SAP_LoadInvoiceMaster">
+            <EntityTypeMapping TypeName="RentecoModel.SAP_LoadInvoiceMaster">
+              <MappingFragment StoreEntitySet="SAP_LoadInvoiceMaster">
+                <ScalarProperty Name="Project" ColumnName="Project" />
+                <ScalarProperty Name="U_SCG_TipoDocumento" ColumnName="U_SCG_TipoDocumento" />
+                <ScalarProperty Name="SalesPersonCode" ColumnName="SalesPersonCode" />
+                <ScalarProperty Name="DiscountPercent" ColumnName="DiscountPercent" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="ManualNumber" ColumnName="ManualNumber" />
+                <ScalarProperty Name="HandWritten" ColumnName="HandWritten" />
+                <ScalarProperty Name="DocType" ColumnName="DocType" />
+                <ScalarProperty Name="NumAtCard" ColumnName="NumAtCard" />
+                <ScalarProperty Name="DocDueDate" ColumnName="DocDueDate" />
+                <ScalarProperty Name="TaxDate" ColumnName="TaxDate" />
+                <ScalarProperty Name="DocDate" ColumnName="DocDate" />
+                <ScalarProperty Name="DocCurrency" ColumnName="DocCurrency" />
+                <ScalarProperty Name="CardCode" ColumnName="CardCode" />
+                <ScalarProperty Name="DocNum" ColumnName="DocNum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
