@@ -152,6 +152,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BusinessIntelligenceController.cs" />
+    <Compile Include="Controllers\Common\CustomerController.cs" />
     <Compile Include="Controllers\Common\DocumentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -163,8 +164,8 @@
     <Compile Include="Helpers\PivotGridDataExportHelper.cs" />
     <Compile Include="Models\BusinessIntelligence\BusinessIntelligenceModel.cs" />
     <Compile Include="Models\BusinessIntelligence\BusinessIntelligenceSettings.cs" />
-    <Compile Include="Models\CustomerModel.cs" />
     <Compile Include="Models\Common\CommonEnums.cs" />
+    <Compile Include="Models\Common\DocumentModel.cs" />
     <Compile Include="Models\Common\DocumentGridViewModel.cs" />
     <Compile Include="Models\PivotGrid\PivotGridSettingsBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

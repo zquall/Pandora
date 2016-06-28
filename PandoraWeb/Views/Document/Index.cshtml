@@ -1,6 +1,6 @@
 ﻿@{
     Layout = null;
-    @model IEnumerable<PandoraWeb.Models.Common.DocumentGridViewModel>
+    @model PandoraWeb.Models.Common.DocumentModel
 }
 
 <div class="panel-heading bg-primary">
@@ -15,7 +15,7 @@
 
                 <div class="form-group">
                     <label for="CustomerEdit">Nombre del cliente</label>
-                    @Html.Partial("_ComboBoxPartial")
+                    @Html.Partial("_ComboBoxPartial", Model.Customers)
 
                 </div>
 
@@ -204,9 +204,7 @@
     settings.TabAlign = TabAlign.Justify;
     settings.TabPages.Add("Contenido").SetContent(() =>
     {
-        Html.RenderPartial("_DocumentGridViewPartial", Model);
-
-        //Html.Action("DocumentGridViewPartial", "Document");
+       Html.RenderPartial("_DocumentGridViewPartial", Model.DocumentDetails);
 
     });
     settings.TabPages.Add("Direccion").SetContent(() =>

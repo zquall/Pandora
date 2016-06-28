@@ -50,12 +50,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CustomerService.cs" />
     <Compile Include="ReportSalesService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataAccess\DataAccess.csproj">
       <Project>{4647f511-3735-4d4f-b084-b2bf6f7bc83a}</Project>
       <Name>DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataObjects\DataObjects.csproj">
+      <Project>{02ae1c6d-6eb0-45af-aaf0-cc7fc456c8fe}</Project>
+      <Name>DataObjects</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -27,6 +27,7 @@ namespace DataAccess
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Get_Customers> Get_Customers { get; set; }
     
         public virtual int GetProjectGeneralStatus(Nullable<int> projectQuoteId)
         {

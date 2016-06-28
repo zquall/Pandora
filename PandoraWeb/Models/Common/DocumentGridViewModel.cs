@@ -1,4 +1,7 @@
-﻿namespace PandoraWeb.Models.Common
+﻿using System.Collections.Generic;
+using DataObjects.Common;
+
+namespace PandoraWeb.Models.Common
 {
     public class DocumentGridViewModel
     {
