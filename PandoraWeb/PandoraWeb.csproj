@@ -154,6 +154,7 @@
     <Compile Include="Controllers\BusinessIntelligenceController.cs" />
     <Compile Include="Controllers\Common\DocumentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\RentalController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Global.asax.cs">
@@ -192,6 +193,7 @@
     <Content Include="Views\BusinessIntelligence\_PivotGridFilterPartial.cshtml" />
     <None Include="Properties\PublishProfiles\Pandora Deploy.pubxml" />
     <Content Include="Views\Document\_ComboBoxPartial.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
