@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8301AF8C-D10F-474B-A8A2-67BD055D780B}</ProjectGuid>
+    <ProjectGuid>{02AE1C6D-6EB0-45AF-AAF0-CC7FC456C8FE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DataObjects</RootNamespace>
@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Authentication\LoginCredentials.cs" />
     <Compile Include="Common\Constants.cs" />
+    <Compile Include="Common\KeyValueObject.cs" />
     <Compile Include="Customer\CreditMemo.cs" />
     <Compile Include="Customer\CustomerInvoice.cs" />
     <Compile Include="Customer\CustomerProject.cs" />

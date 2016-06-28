@@ -4,7 +4,16 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="PandoraModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="PandoraModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Pandora.dbo.Get_Customers' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Get_Customers">
+          <Key>
+            <PropertyRef Name="CardCode" />
+          </Key>
+          <Property Name="CardCode" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="CardName" Type="nvarchar" MaxLength="100" />
+        </EntityType>
         <Function Name="GetProjectGeneralStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ProjectQuoteId" Type="int" Mode="In" />
         </Function>
@@ -12,7 +21,14 @@
           <Parameter Name="StartDate" Type="datetime" Mode="In" />
           <Parameter Name="EndDate" Type="datetime" Mode="In" />
         </Function>
-        <EntityContainer Name="PandoraModelStoreContainer" />
+        <EntityContainer Name="PandoraModelStoreContainer">
+          <EntitySet Name="Get_Customers" EntityType="Self.Get_Customers" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Get_Customers].[CardCode] AS [CardCode], 
+    [Get_Customers].[CardName] AS [CardName]
+    FROM [dbo].[Get_Customers] AS [Get_Customers]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -25,6 +41,7 @@
             <Parameter Name="StartDate" Mode="In" Type="DateTime" />
             <Parameter Name="EndDate" Mode="In" Type="DateTime" />
           </FunctionImport>
+          <EntitySet Name="Get_Customers" EntityType="PandoraModel.Get_Customers" />
         </EntityContainer>
         <ComplexType Name="GetSalesByEmployeeByDivision_Result">
           <Property Type="String" Name="Area" Nullable="false" MaxLength="25" />
@@ -45,6 +62,13 @@
           <Property Type="Decimal" Name="DiscountColons" Nullable="true" Precision="21" Scale="6" />
           <Property Type="Decimal" Name="DiscountDollar" Nullable="true" Precision="38" Scale="17" />
           </ComplexType>
+        <EntityType Name="Get_Customers">
+          <Key>
+            <PropertyRef Name="CardCode" />
+          </Key>
+          <Property Name="CardCode" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="CardName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -75,6 +99,14 @@
                 </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="Get_Customers">
+            <EntityTypeMapping TypeName="PandoraModel.Get_Customers">
+              <MappingFragment StoreEntitySet="Get_Customers">
+                <ScalarProperty Name="CardName" ColumnName="CardName" />
+                <ScalarProperty Name="CardCode" ColumnName="CardCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

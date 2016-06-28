@@ -15,14 +15,8 @@ namespace PandoraWeb.Controllers.Common
         // GET: Document
         public ActionResult Index()
         {
-            var model = new List<DocumentGridViewModel>();
-            var lista = new List<CustomerModel>
-            {
-                new CustomerModel {Id = "0", Name = "aaaaa"},
-                new CustomerModel {Id = "1", Name = "bbbbbb"},
-                new CustomerModel {Id = "3", Name = "ccccc"}
-            };
-            ViewData["Customers"] = lista;
+            var model = new DocumentModel();
+
             return View(model);
         }
 
@@ -89,18 +83,6 @@ namespace PandoraWeb.Controllers.Common
             return PartialView("~/Views/Document/_DocumentGridViewPartial.cshtml", model);
         }
 
-        public ActionResult ComboBoxPartial()
-        {
-            var lista = new List<CustomerModel>
-            {
-                new CustomerModel {Id = "0", Name = "aaaaa"},
-                new CustomerModel {Id = "1", Name = "bbbbbb"},
-                new CustomerModel {Id = "3", Name = "ccccc"}
-            };
-            ViewData["Customers"] = lista;
-
-            return PartialView("~/Views/Document/_ComboBoxPartial.cshtml");
-        }
 
     }
 }

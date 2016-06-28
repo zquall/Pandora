@@ -4,7 +4,9 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="027ac8455edd43f2a87d83accd3887ed" Name="Diagram1" />
+      <Diagram DiagramId="027ac8455edd43f2a87d83accd3887ed" Name="Diagram1" >
+        <EntityTypeShape EntityType="PandoraModel.Get_Customers" Width="1.5" PointX="0.75" PointY="0.75" />
+      </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

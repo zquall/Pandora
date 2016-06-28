@@ -9,7 +9,6 @@ namespace Core
 {
     public class ReportSalesService
     {
-        
         public IEnumerable<GetSalesByEmployeeByDivision_Result> GetSalesByEmployeeByDivision (DateTime startDate, DateTime endDate)
         {
             List<GetSalesByEmployeeByDivision_Result> result;

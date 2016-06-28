@@ -54,6 +54,9 @@
     <Compile Include="GetSalesByEmployeeByDivision_Result.cs">
       <DependentUpon>Nerv.tt</DependentUpon>
     </Compile>
+    <Compile Include="Get_Customers.cs">
+      <DependentUpon>Nerv.tt</DependentUpon>
+    </Compile>
     <Compile Include="Nerv.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
