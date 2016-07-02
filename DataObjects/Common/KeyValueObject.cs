@@ -1,4 +1,4 @@
-﻿namespace DataObjects.Common
+﻿namespace PandoraObjects.Common
 {
     public class KeyValueObject
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataObjects.Models.PivotGrid
+namespace PandoraObjects.Models.PivotGrid
 {
     public class PivotGridDataAwareOptions
     {

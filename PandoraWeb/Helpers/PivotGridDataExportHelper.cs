@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Web.Mvc;
 using System.Web.UI.WebControls;
-using DataObjects.Models.PivotGrid;
+using PandoraObjects.Models.PivotGrid;
 using DevExpress.Export;
 using DevExpress.Utils;
 using DevExpress.Web;

@@ -1,6 +1,6 @@
 ﻿using System.Xml.Serialization;
 
-namespace DataObjects.Authentication
+namespace PandoraObjects.Authentication
 {
     [XmlRoot(ElementName = "Login")]
     //[XmlRootAttribute(ElementName = "Login", Namespace = "http://www.sap.com/SBO/DIS")]

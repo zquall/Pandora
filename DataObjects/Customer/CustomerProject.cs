@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Xml.Serialization;
-using DataObjects.Item;
+using PandoraObjects.Item;
 
-namespace DataObjects.Customer
+namespace PandoraObjects.Customer
 {
     public class CustomerProject
     {

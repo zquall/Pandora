@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using DataObjects.Models.PivotGrid;
+using PandoraObjects.Models.PivotGrid;
 using PandoraWeb.Helpers;
 using PandoraWeb.Models.Common;
 

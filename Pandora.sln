@@ -11,7 +11,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\Da
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{4F1839C0-E0FA-498F-82EB-5019A789C355}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataObjects", "DataObjects\DataObjects.csproj", "{02AE1C6D-6EB0-45AF-AAF0-CC7FC456C8FE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PandoraObjects", "DataObjects\PandoraObjects.csproj", "{02AE1C6D-6EB0-45AF-AAF0-CC7FC456C8FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessOneObjects", "BusinessOneObjects\BusinessOneObjects.csproj", "{FC09FDCB-1AA9-40B8-A452-75F89DBF44AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Extensions", "Extensions\Extensions.csproj", "{107A227D-8243-4F55-91B1-0D8EC28BA7BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoapXmlGenerator", "SoapXmlGenerator\SoapXmlGenerator.csproj", "{FC391C99-5CC9-47E1-B0E9-442FE102D535}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PithosApi", "PithosApi\PithosApi.csproj", "{82E62823-687B-463F-8858-551948F9CFEB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +47,22 @@ Global
 		{02AE1C6D-6EB0-45AF-AAF0-CC7FC456C8FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{02AE1C6D-6EB0-45AF-AAF0-CC7FC456C8FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{02AE1C6D-6EB0-45AF-AAF0-CC7FC456C8FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC09FDCB-1AA9-40B8-A452-75F89DBF44AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC09FDCB-1AA9-40B8-A452-75F89DBF44AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC09FDCB-1AA9-40B8-A452-75F89DBF44AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC09FDCB-1AA9-40B8-A452-75F89DBF44AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{107A227D-8243-4F55-91B1-0D8EC28BA7BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{107A227D-8243-4F55-91B1-0D8EC28BA7BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{107A227D-8243-4F55-91B1-0D8EC28BA7BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{107A227D-8243-4F55-91B1-0D8EC28BA7BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC391C99-5CC9-47E1-B0E9-442FE102D535}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC391C99-5CC9-47E1-B0E9-442FE102D535}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC391C99-5CC9-47E1-B0E9-442FE102D535}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC391C99-5CC9-47E1-B0E9-442FE102D535}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82E62823-687B-463F-8858-551948F9CFEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82E62823-687B-463F-8858-551948F9CFEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82E62823-687B-463F-8858-551948F9CFEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82E62823-687B-463F-8858-551948F9CFEB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

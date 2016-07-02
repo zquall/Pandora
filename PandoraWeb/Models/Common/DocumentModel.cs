@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using DataObjects.Common;
+using PandoraObjects.Common;
 
 namespace PandoraWeb.Models.Common
 {

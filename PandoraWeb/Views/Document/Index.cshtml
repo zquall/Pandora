@@ -27,7 +27,7 @@
                         //settings.ControlStyle.CssClass = "form-control";
                         settings.Width = 200;
                         settings.Properties.Buttons.Add(new EditButton());
-                        settings.Properties.ClientSideEvents.ButtonClick = "buttonEdit1_ButtonClick";
+                        settings.Properties.ClientSideEvents.ButtonClick = "yourNamespace.foo";
                     }).GetHtml()
 
                 </div>
@@ -39,7 +39,7 @@
                         settings.Name = "ProjectEdit";
                         settings.Width = 310;
                         settings.Properties.Buttons.Add(new EditButton());
-                        settings.Properties.ClientSideEvents.ButtonClick = "buttonEdit1_ButtonClick";
+                        settings.Properties.ClientSideEvents.ButtonClick = "yourNamespace.foo";
                     }).GetHtml()
 
                 </div>
@@ -67,7 +67,7 @@
                         settings.Width = 120;
                         settings.Properties.NullText = "00012345";
                         settings.Properties.Buttons.Add(new EditButton());
-                        settings.Properties.ClientSideEvents.ButtonClick = "buttonEdit1_ButtonClick";
+                        settings.Properties.ClientSideEvents.ButtonClick = "yourNamespace.foo";
                     }).GetHtml()
                 </div>
 
@@ -152,7 +152,7 @@
                                               settings.Properties.NullText = "00012345";
                                               settings.ControlStyle.CssClass = "pull-right";
                                               settings.Properties.Buttons.Add(new EditButton());
-                                              settings.Properties.ClientSideEvents.ButtonClick = "buttonEdit1_ButtonClick";
+                                              settings.Properties.ClientSideEvents.ButtonClick = "yourNamespace.foo";
                                           }).GetHtml()
                         </td>
                     </tr>
@@ -233,7 +233,7 @@
                     settings.Name = "EmployeeEdit";
                     settings.Width = 200;
                     settings.Properties.Buttons.Add(new EditButton());
-                    settings.Properties.ClientSideEvents.ButtonClick = "buttonEdit1_ButtonClick";
+                    settings.Properties.ClientSideEvents.ButtonClick = "yourNamespace.foo";
                 }).GetHtml()
 
             </div>

@@ -144,6 +144,7 @@
     <Content Include="Scripts\angular-mocks.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\core.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -214,9 +215,9 @@
       <Project>{4647f511-3735-4d4f-b084-b2bf6f7bc83a}</Project>
       <Name>DataAccess</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DataObjects\DataObjects.csproj">
+    <ProjectReference Include="..\DataObjects\PandoraObjects.csproj">
       <Project>{02ae1c6d-6eb0-45af-aaf0-cc7fc456c8fe}</Project>
-      <Name>DataObjects</Name>
+      <Name>PandoraObjects</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

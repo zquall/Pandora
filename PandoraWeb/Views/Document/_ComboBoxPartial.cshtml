@@ -1,18 +1,20 @@
-@model IEnumerable<DataObjects.Common.KeyValueObject>
+@model IEnumerable<PandoraObjects.Common.KeyValueObject>
 @{
     @Html.DevExpress().ComboBox(settings =>
-    {
-        settings.Name = "CustomerEdit";
-        //settings.ControlStyle.CssClass = "form-control";
-        settings.Width = 310;
-        settings.Properties.DropDownButton.Visible = false;
-        settings.Properties.Buttons.Add(new EditButton());
-        //settings.Properties.ClientSideEvents.ButtonClick = "buttonEdit1_ButtonClick";
-        //settings.Properties.Caption = "Elija un cliente";
-        settings.CallbackRouteValues = new {Controller = "Customer", Action = "ComboBoxPartial"};
-        settings.Properties.DropDownStyle = DropDownStyle.DropDownList;
-        settings.SelectedIndex = 0;
-        settings.Properties.TextField = "Name";
-        settings.Properties.ValueField = "Id";
-    }).BindList(Model).GetHtml()
+{
+    settings.Name = "CustomerEdit";
+    //settings.ControlStyle.CssClass = "form-control";
+    settings.Width = 310;
+    settings.Properties.DropDownButton.Visible = false;
+    settings.Properties.Buttons.Add(new EditButton());
+    //settings.Properties.ClientSideEvents.ButtonClick = "buttonEdit1_ButtonClick";
+    //settings.Properties.Caption = "Elija un cliente";
+
+    settings.Properties.ClientSideEvents.SelectedIndexChanged = "CustomerManager.LoadCustomer";
+    settings.CallbackRouteValues = new {Controller = "Customer", Action = "ComboBoxPartial"};
+    settings.Properties.DropDownStyle = DropDownStyle.DropDownList;
+    settings.SelectedIndex = 0;
+    settings.Properties.TextField = "Name";
+    settings.Properties.ValueField = "Id";
+}).BindList(Model).GetHtml()
 }

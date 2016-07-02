@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataObjects.Item
+namespace PandoraObjects.Item
 {
     public class ItemDetail
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using DataObjects.Models.PivotGrid;
+using PandoraObjects.Models.PivotGrid;
 using DevExpress.Utils;
 using DevExpress.Web.Mvc;
 using DevExpress.XtraPivotGrid;
