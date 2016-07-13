@@ -135,6 +135,7 @@
     <Content Include="Content\dx.common.css" />
     <Content Include="Content\dx.dark.compact.css" />
     <Content Include="Content\dx.dark.css" />
+    <Content Include="Content\dx.light.compact.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="favicon.ico" />

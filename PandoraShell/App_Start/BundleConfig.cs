@@ -23,7 +23,8 @@ namespace PandoraShell
                       "~/Content/bootstrap.css",
                       "~/Content/bootstrap-theme.css",
                       "~/Content/dx.common.css",
-                      "~/Content/dx.dark.compact.css",
+                     // "~/Content/dx.dark.compact.css",
+                      "~/Content/dx.light.compact.css",
                       "~/Content/site.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
