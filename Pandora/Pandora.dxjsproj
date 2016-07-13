@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>ad53801c-e392-4c69-aba9-ae1f9d399a10</ProjectGuid>
+    <AutoAssignPort>False</AutoAssignPort>
+    <RunInSimulator>False</RunInSimulator>
+    <UploadPluginsToTheCourier>True</UploadPluginsToTheCourier>
+    <ApplicationPage>index.html</ApplicationPage>
+    <RootNamespace>AngularNavBarTemplate</RootNamespace>
+    <Name>AngularNavBarTemplate</Name>
+    <ApkDexFilePackageName>com.devextreme.Pandora</ApkDexFilePackageName>
+    <DebugSitePortNumber>8888</DebugSitePortNumber>
+    <UseWebDev>False</UseWebDev>
+    <DefaultDevice>iPad</DefaultDevice>
+    <DeviceOrientation>Landscape</DeviceOrientation>
+    <DisplayUnhandledExceptions>True</DisplayUnhandledExceptions>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>false</DebugSymbols>
+    <OutputPath>bin\Release\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="cordova.js" />
+    <None Include="config.xml" />
+    <Content Include="css\app.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="css\dx.common.css" />
+    <Content Include="css\dx.contrast.compact.css" />
+    <Content Include="css\dx.contrast.css" />
+    <Content Include="css\dx.dark.compact.css" />
+    <Content Include="css\dx.light.compact.css" />
+    <Content Include="css\dx.android5.light.css" />
+    <Content Include="css\dx.light.css" />
+    <Content Include="css\dx.dark.css" />
+    <Content Include="css\dx.ios7.default.css" />
+    <Content Include="css\dx.win8.black.css" />
+    <Content Include="css\dx.win8.white.css" />
+    <Content Include="css\icons\dxicons.eot" />
+    <Content Include="css\icons\dxicons.ttf" />
+    <Content Include="css\icons\dxicons.woff" />
+    <Content Include="css\icons\dxiconsios.eot" />
+    <Content Include="css\icons\dxiconsios.ttf" />
+    <Content Include="css\icons\dxiconsios.woff" />
+    <Content Include="index.html">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="js\app.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="js\controllers.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="js\directives.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="js\filters.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="js\global.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="js\services.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\angular-route.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\angular-sanitize.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\angular-sanitize.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\angular.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\angular.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\dx.phonejs.debug.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\dx.phonejs.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\globalize.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\globalize.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\jquery-1.11.3.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\jquery-1.11.3.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\jquery-2.1.4.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\jquery-2.1.4.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="partials\about.html">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="partials\home.html">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="partials\navbarLayout.html">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="partials\pivotLayout.html">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="partials\toolbar.html">
+      <SubType>Content</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="css\" />
+    <Folder Include="css\icons\" />
+    <Folder Include="js\" />
+    <Folder Include="lib\" />
+    <Folder Include="partials\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
+  <Target Name="Build">
+    <!--
+    <Message Text="'$(MSBuildToolsPath)'"></Message>
+    -->
+    <Message Text="Build JSProject '$(MSBuildProjectFile)':" Importance="high">
+    </Message>
+    <Message Text="Copying references to output dir." Importance="high" />
+    <MSBuild Targets="Build" Projects="@(ProjectReference)" Properties="OutputPath=$([System.IO.Path]::GetFullPath('$(OutputPath)'))">
+    </MSBuild>
+    <Message Text="Copying files to output dir." Importance="high" />
+    <Copy SourceFiles="@(Content)" DestinationFiles="@(Content->'$(OutputPath)%(RelativeDir)%(Filename)%(Extension)')" />
+    <Message Text="Finished Build JSProject '$(MSBuildProjectFile)'." Importance="high">
+    </Message>
+  </Target>
+  <Target Name="CreateManifestResourceNames" Condition="'@(ResxWithNoCulture)@(ResxWithCulture)@(NonResxWithNoCulture)@(NonResxWithCulture)'!=''" />
+  <Target Name="Rebuild" DependsOnTargets="Clean;Build">
+  </Target>
+  <Target Name="Clean">
+    <!--
+    <Message Text="Cleaning Output files..." Importance="high" />
+    <Delete Files="@([System.IO.Path]::GetFullPath('$(OutputPath)'))" />
+    -->
+    <Message Text="Cleaning Output dir ($([System.IO.Path]::GetFullPath('$(OutputPath)')))..." Importance="high" />
+    <RemoveDir Directories="$([System.IO.Path]::GetFullPath('$(OutputPath)'))" />
+  </Target>
+</Project>

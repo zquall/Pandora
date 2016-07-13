@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <link href="~/Content/font-awesome.css" rel="stylesheet"/>
+
+
+</head>
+<body ng-app="Pandora">
+
+
+
+
+    
+
+<div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">
+                        PANDORA
+                    </a>
+                </li>
+                <li>
+                    <a href="#">Dashboard</a>
+                </li>
+                <li>
+                    <a href="#" data-toggle="collapse" data-target="#rent-items">
+                        <i class="fa fa-fw fa-edit"></i> Alquileres
+                    </a>
+                    <div id="rent-items" class="collapse ">
+                        <ul  class=" ">
+                            <li>
+                                <a href="~/Rental/Quote">Cotizaciones</a>
+                            </li>
+                            <li>
+                                <a href="#">Orden de Compra</a>
+                            </li>
+                        </ul>
+                    </div>
+                   
+                </li>
+
+        
+            
+                <li>
+                    <a href="#">
+                        <i class="fa fa-fw fa-edit"></i> Overview
+                    </a>
+                </li>
+                <li>
+                    <a href="#">Events</a>
+                </li>
+                <li>
+                    <a href="#">About</a>
+                </li>
+                <li>
+                    <a href="#">Services</a>
+                </li>
+                <li>
+                    <a href="#">Contact</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+        @RenderBody()
+    </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+
+
+
+
+
+    
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@Scripts.Render("~/bundles/angular")
+@Scripts.Render("~/bundles/devextreme")
+
+    
+
+
+
+
+@RenderSection("scripts", required: false)
+
+    <script src="~/Scripts/app.js"></script>
+    <script src="~/Scripts/controllers.js"></script>
+</body>
+</html>
